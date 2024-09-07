@@ -1,0 +1,24 @@
+{
+  "index": {
+    "title": "Présentation",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
+  "introduction": "Qu'est-ce que Docker ?",
+  "installation": "Installation",
+  "gestion-de-container": "Gestion de conteneurs Docker",
+  "creation-image-docker": "Création d'image Docker",
+  "reseau-stockage": "Réseaux & stockage",
+  "TLDR": "TLDR",
+  "---": {
+    "type": "separator"
+  },
+  "ressources": "Ressources",
+  "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "https://occitaweb.fr",
+    "newWindow": true
+  }
+}

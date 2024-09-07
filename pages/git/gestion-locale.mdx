@@ -1,0 +1,79 @@
+# Les bases de Git : Gestion locale
+
+Dans cette section, nous allons explorer les concepts et commandes de base pour gérer un dépôt Git local.
+
+## Initialisation d'un dépôt Git
+
+Pour créer un nouveau dépôt Git local, suivez ces étapes :
+
+1. Créez un dossier vide pour votre projet
+2. Accdez-vous à ce dossier dans le terminal
+3. Initialisez le dépôt avec la commande :
+   ```bash copy
+   git init
+   ```
+   Cette commande crée un nouveau dépôt Git dans le dossier courant.
+
+## Suivi de fichiers et état du dépôt
+
+### État du dépôt
+
+Pour voir l'état actuel de votre dépôt, utilisez la commande :
+```bash copy
+git status
+```
+Cette commande affiche :
+- Les fichiers modifiés mais non ajoutés
+- Les fichiers ajoutés mais non commités
+- Les fichiers qui ont été supprimés
+
+### Ajout de fichiers
+
+Pour ajouter un fichier à la zone de suivi de Git, utilisez :
+```bash copy
+git add <nom_du_fichier>
+```
+Vous pouvez également ajouter tous les fichiers modifiés avec :
+```bash copy
+git add .
+```
+
+## Effectuation d'un commit
+
+Une fois les fichiers ajoutés, vous pouvez effectuer un commit pour enregistrer définitivement les changements :
+
+```bash copy
+git commit -m "Message du commit"
+```
+Le `-m` permet d'ajouter un message court expliquant les changements.
+
+## Suivi des changements
+
+Pour voir l'historique des commits, utilisez :
+```bash copy
+git log
+```
+Cette commande affiche une liste des derniers commits, y compris leurs dates, auteurs et messages.
+
+## Exercice pratique
+
+Essayez maintenant de mettre en œuvre ces concepts :
+
+1. Créez un nouveau dossier pour votre projet
+2. Initialisez un dépôt Git dedans
+3. Ajoutez un fichier texte (par exemple, un fichier README.md)
+4. Modifiez le contenu du fichier
+5. Ajoutez le fichier modifié avec `git add`
+6. Faites un commit avec un message approprié
+7. Vérifiez l'état du dépôt avec `git status`
+8. Affichez l'historique des commits avec `git log`
+
+## Points clés à retenir
+
+- Le `git init` initialise un dépôt Git local
+- L'utilisation de `git add` permet d'inclure des fichiers dans le prochain commit
+- Le `git commit` enregistre définitivement les changements
+- `git status` montre l'état actuel de votre dépôt
+- `git log` affiche l'historique des commits
+
+En maîtrisant ces commandes de base, vous aurez une solide base pour commencer à utiliser Git efficacement. N'hésitez pas à explorer davantage les fonctionnalités avancées de Git une fois que vous aurez dominé ces concepts de base.

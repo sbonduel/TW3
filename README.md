@@ -1,23 +1,35 @@
-# Nextra Docs Template 
+# Introduction aux technologies du web
 
-This is a template for creating documentation with [Nextra](https://nextra.site).
+Dans le cadre de vos études à l'Université Champollion à Albi, ce programme de cours vous permettra de maîtriser les technologies essentielles au développement web moderne.
 
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
+- **Docker** : Introduction à la conteneurisation d'applications, une technologie clé pour le déploiement simplifié et la gestion des environnements de développement.
 
-[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
+- **NPM** : Gestion des dépendances dans les projets JavaScript. Vous apprendrez à utiliser NPM pour gérer vos modules et automatiser les tâches dans vos projets.
 
-## Quick Start
+- **Node.js** : Développement backend avec Node.js. Ce chapitre couvre la création de serveurs web asynchrones et performants, ainsi que la manipulation de fichiers et de bases de données.
 
-Click the button to clone this repository and deploy it on Vercel:
+- **Git** : Système de gestion de version incontournable. Vous étudierez la manière de gérer les versions de votre code source, de collaborer efficacement en équipe, et de déployer des projets via des plateformes comme GitHub.
 
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
+- **MongoDB** : Base de données NoSQL adaptée aux besoins des applications modernes. Ce module vous introduira aux concepts de stockage et de gestion des données dans un environnement non relationnel.
 
-## Local Development
+- **GraphQL** : Langage de requête pour API. Vous apprendrez à interroger des données de manière optimisée et flexible, en comparaison avec des API REST classiques.
 
-First, run `pnpm i` to install the dependencies.
+- **Authentification** : Concepts d’authentification et d’autorisation pour sécuriser les applications web. Ce module vous familiarisera avec les méthodes modernes d’authentification (OAuth, JWT).
 
-Then, run `pnpm dev` to start the development server and visit localhost:3000.
+- **Tooling** : Introduction aux outils de productivité en développement web tels que les bundlers (Webpack, Parcel), les analyseurs de code (ESLint), et les formatteurs (Prettier) pour automatiser les tâches et garantir la qualité du code.
 
-## License
+- **React** : Framework JavaScript populaire pour le développement d'interfaces utilisateur dynamiques. Vous explorerez les concepts de composants, d'état, et de gestion d'événements avec React.
 
-This project is licensed under the MIT License.
+- **Next.js** : Développement d'applications React côté serveur pour une meilleure performance et optimisation SEO. Vous verrez comment intégrer ce framework pour créer des applications web universelles.
+
+- **UX/UI et Accessibilité** : Introduction aux principes fondamentaux de conception d'interfaces utilisateur, avec un accent particulier sur l'accessibilité pour garantir une expérience utilisateur inclusive.
+
+## Objectifs pédagogiques
+
+Ce programme a pour but de vous fournir une maîtrise pratique et théorique des technologies actuelles du web. À la fin de ces cours, vous serez capable de :
+
+- Créer et gérer des projets web complets, du serveur à l'interface utilisateur.
+- Utiliser des outils et frameworks adaptés aux besoins actuels du développement professionnel.
+- Appliquer les bonnes pratiques en matière d'optimisation, de versionnage et de sécurité dans vos projets.
+
+Les compétences acquises dans ce cadre vous permettront de répondre aux exigences du marché du travail et de poursuivre vos projets avec une solide base technique.

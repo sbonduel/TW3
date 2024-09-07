@@ -1,0 +1,111 @@
+# **Les bases de Node.js** (25 minutes)
+
+## Créer un premier programme Node.js
+
+Pour bien commencer avec Node.js, vous allez créer un premier script simple qui imprimera un message dans la console.
+
+1. **Exemple de script basique :**
+   Le code suivant est un exemple de programme minimal en Node.js. Il utilise la méthode `console.log()` pour afficher du texte dans la console.
+   ```javascript
+   console.log('Hello, Node.js!');
+   ```
+   Ce script, bien que simple, montre la puissance de Node.js pour exécuter du JavaScript en dehors du navigateur.
+
+2. **Exécuter un fichier avec Node.js :**
+   Une fois que vous avez créé un fichier contenant ce script (par exemple, `app.js`), vous pouvez l'exécuter via Node.js en suivant ces étapes :
+   - Ouvrez un terminal dans le répertoire où se trouve le fichier.
+   - Exécutez la commande suivante :
+     ```bash
+     node app.js
+     ```
+   - Vous devriez voir l'affichage suivant dans votre terminal :
+     ```
+     Hello, Node.js!
+     ```
+
+Ce premier programme vous permet de comprendre comment Node.js exécute des scripts JavaScript et interagit avec votre système.
+
+## Utilisation des modules
+
+L'un des points forts de Node.js est son système de **modules**. Node.js inclut plusieurs modules intégrés qui offrent des fonctionnalités essentielles, comme la gestion des fichiers, la création de serveurs web, etc.
+
+1. **Modules intégrés (Core Modules)** :
+   Node.js offre plusieurs modules natifs accessibles immédiatement sans installation supplémentaire. Voici les plus couramment utilisés :
+   - **`http`** : Permet de créer des serveurs HTTP.
+   - **`fs`** : Gère les systèmes de fichiers, comme la lecture et l'écriture de fichiers.
+   - **`path`** : Facilite la manipulation des chemins de fichiers et de répertoires.
+
+   Par exemple, pour lire un fichier en utilisant le module `fs` :
+   ```javascript
+   const fs = require('fs');
+   fs.readFile('example.txt', 'utf8', (err, data) => {
+     if (err) {
+       console.error(err);
+       return;
+     }
+     console.log(data);
+   });
+   ```
+
+2. **Importer des modules avec `require`** :
+   Le mot-clé `require` est utilisé pour importer des modules dans Node.js. Vous pouvez utiliser `require` pour accéder aux **modules intégrés** ou aux **modules que vous avez installés** via NPM.
+
+   Exemple avec le module `http` :
+   ```javascript
+   const http = require('http');
+   const server = http.createServer((req, res) => {
+     res.statusCode = 200;
+     res.setHeader('Content-Type', 'text/plain');
+     res.end('Hello, Node.js server!\n');
+   });
+   server.listen(3000, () => {
+     console.log('Server running at http://localhost:3000/');
+   });
+   ```
+
+## Modules personnalisés
+
+En plus des modules intégrés, vous pouvez créer vos **propres modules** pour organiser votre code et réutiliser certaines fonctionnalités.
+
+1. **Créer et exporter un module personnalisé** :
+   Pour créer un module, il vous suffit d'écrire des fonctions ou des objets dans un fichier et de les exporter avec `module.exports`.
+
+   Exemple de module dans un fichier `greetings.js` :
+   ```javascript
+   const sayHello = () => {
+     return 'Hello from the module!';
+   };
+   module.exports = sayHello;
+   ```
+
+2. **Importer et utiliser un module personnalisé** :
+   Une fois votre module créé, vous pouvez l'importer dans un autre fichier en utilisant `require`.
+
+   Exemple d'importation et d'utilisation du module `greetings.js` :
+   ```javascript
+   const greet = require('./greetings');
+   console.log(greet());
+   ```
+
+## Exercice pratique
+
+**Exercice** : Créer un fichier Node.js qui lit un fichier texte à l'aide du module `fs` et affiche son contenu dans la console.
+
+1. Créez un fichier texte appelé `data.txt` contenant quelques lignes de texte.
+2. Écrivez un programme Node.js dans un fichier `app.js` qui utilise le module `fs` pour lire et afficher le contenu de `data.txt`.
+
+```javascript
+const fs = require('fs');
+
+fs.readFile('data.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading the file:', err);
+    return;
+  }
+  console.log('File content:');
+  console.log(data);
+});
+```
+
+Lorsque vous exécutez `node app.js`, le contenu de `data.txt` s'affichera dans la console.
+

@@ -1,0 +1,145 @@
+# **Node.js et Express.js**
+
+L'utilisation d'Express.js avec Node.js permet de simplifier et d'améliorer le développement d'applications web. Express est un framework web minimaliste pour Node.js qui offre des outils puissants pour la gestion des routes, des middlewares et des requêtes HTTP.
+
+## Présentation du framework Express
+
+**Express.js** est un framework léger et flexible pour créer des applications web et des API avec Node.js. Il fournit un ensemble de fonctionnalités permettant de gérer les requêtes HTTP, les routes, les middlewares et la gestion des erreurs de manière efficace. Grâce à sa simplicité et à sa flexibilité, Express est devenu l'un des frameworks les plus populaires pour le développement backend en JavaScript.
+
+**Pourquoi utiliser Express avec Node.js ?**
+
+- **Simplicité** : Express simplifie le processus de création de serveurs HTTP, en facilitant la gestion des routes et des réponses.
+- **Extensibilité** : Express permet d'ajouter des middlewares pour traiter les requêtes de manière personnalisée, ce qui le rend très extensible.
+- **Efficacité** : Express permet de rapidement construire des applications et des API RESTful avec moins de code par rapport à l'implémentation directe avec Node.js.
+
+## Installation et configuration d'Express
+
+Pour utiliser Express, vous devez l'installer dans votre projet Node.js via NPM (Node Package Manager). Voici comment procéder :
+
+1. **Initialiser un projet Node.js** (si ce n'est pas déjà fait) :
+   ```bash
+   npm init -y
+   ```
+
+2. **Installer Express** dans le projet :
+   ```bash
+   npm install express
+   ```
+
+3. **Configurer un serveur Express de base** :
+
+   ```javascript
+   const express = require('express');
+   const app = express();
+   
+   app.get('/', (req, res) => {
+     res.send('Bienvenue sur le serveur Express !');
+   });
+
+   const PORT = 3000;
+   app.listen(PORT, () => {
+     console.log(`Serveur en cours d'exécution sur le port ${PORT}`);
+   });
+   ```
+
+   Ici, un serveur Express est configuré pour écouter sur le port 3000 et renvoyer un message "Bienvenue sur le serveur Express" lorsqu'une requête est faite sur la racine (`/`).
+
+## Routes avec Express
+
+Les **routes** sont l'un des éléments centraux d'Express. Elles permettent de définir comment l'application doit répondre à une requête spécifique à un point donné de l'URL.
+
+- **Créer des routes pour différentes requêtes HTTP** :
+
+   Express permet de gérer différentes méthodes HTTP (`GET`, `POST`, `PUT`, `DELETE`, etc.). Voici un exemple simple avec des routes `GET` et `POST` :
+
+   ```javascript
+   app.get('/about', (req, res) => {
+     res.send('Page À propos');
+   });
+
+   app.post('/submit', (req, res) => {
+     res.send('Formulaire soumis avec succès');
+   });
+   ```
+
+Dans cet exemple, la route `/about` gère les requêtes `GET`, tandis que la route `/submit` répond aux requêtes `POST`.
+
+## Middleware dans Express
+
+Un **middleware** est une fonction qui a accès à l'objet `req` (requête), `res` (réponse), et à la prochaine fonction middleware dans le cycle de traitement des requêtes.
+
+- **Utiliser des middlewares pour traiter les requêtes** :
+  
+   Les middlewares peuvent être utilisés pour effectuer des opérations comme l'authentification, la journalisation des requêtes, la gestion des erreurs, ou encore le traitement des données envoyées par les utilisateurs (par exemple via des formulaires).
+
+   Exemple de middleware simple qui journalise les requêtes :
+
+   ```javascript
+   app.use((req, res, next) => {
+     console.log(`Requête reçue : ${req.method} ${req.url}`);
+     next();  // Passer au middleware suivant
+   });
+   ```
+
+   Ce middleware s'exécute à chaque requête, journalise la méthode HTTP et l'URL, puis passe la main au middleware suivant ou à la route correspondante.
+
+- **Gestion des erreurs dans Express** :
+
+   Express fournit un mécanisme intégré pour la gestion des erreurs. Un middleware de gestion des erreurs peut être ajouté de cette façon :
+
+   ```javascript
+   app.use((err, req, res, next) => {
+     console.error(err.stack);
+     res.status(500).send('Quelque chose a mal tourné!');
+   });
+   ```
+
+   Ce middleware intercepte toute erreur non gérée et renvoie une réponse générique avec un statut HTTP 500.
+
+## Exercice pratique
+
+**Objectif** : Créer une petite application Express avec plusieurs routes et un middleware simple.
+
+1. **Étape 1** : Créer une application Express qui gère trois routes :
+   - `/` : qui affiche un message de bienvenue.
+   - `/about` : qui affiche une page "À propos".
+   - `/contact` : qui affiche une page de contact.
+
+2. **Étape 2** : Ajouter un middleware pour journaliser chaque requête avec sa méthode HTTP et son URL.
+
+3. **Étape 3** : Ajouter un middleware de gestion des erreurs qui renvoie une erreur 404 pour toute route non trouvée.
+
+Exemple de solution :
+```javascript
+const express = require('express');
+const app = express();
+
+// Middleware de journalisation
+app.use((req, res, next) => {
+  console.log(`Requête : ${req.method} ${req.url}`);
+  next();
+});
+
+// Routes
+app.get('/', (req, res) => {
+  res.send('Bienvenue sur la page d\'accueil !');
+});
+
+app.get('/about', (req, res) => {
+  res.send('Page À propos');
+});
+
+app.get('/contact', (req, res) => {
+  res.send('Page Contact');
+});
+
+// Middleware de gestion des erreurs
+app.use((req, res) => {
+  res.status(404).send('Page non trouvée');
+});
+
+// Lancer le serveur
+app.listen(3000, () => {
+  console.log('Serveur en écoute sur le port 3000');
+});
+```

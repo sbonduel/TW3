@@ -1,0 +1,77 @@
+# **Node.js et gestion asynchrone**
+
+La gestion asynchrone est l'un des concepts les plus puissants de Node.js, rendant possible l'exécution de tâches sans bloquer l'application. Cela permet de réaliser plusieurs opérations en parallèle sans interrompre le flux du programme, ce qui est particulièrement utile dans les applications à forte charge, comme les serveurs web.
+
+## Programmation asynchrone avec des callbacks
+
+Node.js utilise un modèle **non-bloquant**, ce qui signifie que lorsqu'une opération est déclenchée, elle ne bloque pas le reste du programme. En d'autres termes, au lieu d'attendre qu'une tâche soit terminée, Node.js continue d'exécuter le reste du code et gère le résultat de l'opération de manière asynchrone.
+
+Les **callbacks** sont une méthode classique pour gérer cette asynchronicité. Un callback est une fonction passée en argument d'une autre fonction et appelée une fois que la tâche asynchrone est terminée.
+
+Exemple d'utilisation avec le module `fs` pour lire un fichier de manière asynchrone :
+
+```javascript
+const fs = require('fs');
+
+// Lire un fichier de manière asynchrone avec un callback
+fs.readFile('example.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error('Erreur de lecture du fichier:', err);
+    return;
+  }
+  console.log('Contenu du fichier:', data);
+});
+```
+
+Dans cet exemple, la fonction `fs.readFile()` déclenche la lecture du fichier, et une fois que l'opération est terminée, elle exécute la fonction callback. Si une erreur survient (par exemple, si le fichier n'existe pas), elle est gérée via l'objet `err`.
+
+## Les Promesses et async/await
+
+Les **Promesses** sont une alternative moderne aux callbacks pour gérer l'asynchronie. Elles permettent de rendre le code plus lisible et d'éviter les fameux "callback hell" (enchaînements complexes de callbacks).
+
+Une **Promesse** représente la valeur d'une opération asynchrone qui sera remplie dans le futur. Elle peut être en trois états : *pending* (en attente), *fulfilled* (réussie), ou *rejected* (échouée).
+
+Exemple de Promesse avec la méthode `readFile` :
+
+```javascript
+const fs = require('fs').promises;
+
+fs.readFile('example.txt', 'utf8')
+  .then((data) => {
+    console.log('Contenu du fichier :', data);
+  })
+  .catch((err) => {
+    console.error('Erreur de lecture du fichier :', err);
+  });
+```
+
+La syntaxe **`async/await`** simplifie encore plus l'utilisation des Promesses en permettant de traiter le code asynchrone comme s'il était synchrone.
+
+Voici l'exemple précédent réécrit avec `async/await` :
+
+```javascript
+const fs = require('fs').promises;
+
+async function lireFichier() {
+  try {
+    const data = await fs.readFile('example.txt', 'utf8');
+    console.log('Contenu du fichier :', data);
+  } catch (err) {
+    console.error('Erreur de lecture du fichier :', err);
+  }
+}
+
+lireFichier();
+```
+
+Avec `async/await`, le code est plus lisible et plus facile à comprendre. La fonction `lireFichier` est marquée comme `async`, ce qui permet d'utiliser `await` pour attendre que la Promesse soit résolue.
+
+## Exercice pratique
+
+1. **Réécrire un code basé sur des callbacks en utilisant des Promesses :**
+
+Prenez un code existant utilisant des callbacks (comme dans l'exemple `fs.readFile()`) et réécrivez-le en utilisant des Promesses.
+
+2. **Utiliser `async/await` pour simplifier le code :**
+
+Transformez ensuite ce code utilisant des Promesses en une version plus lisible avec `async/await`.

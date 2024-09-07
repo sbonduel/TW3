@@ -1,0 +1,23 @@
+# Introduction à la Création d'Images Docker
+
+Une image Docker est un composant essentiel de l'écosystème Docker. C’est une version encapsulée et immuable d’une application, comprenant tout ce dont elle a besoin pour s’exécuter : le code, les bibliothèques, les dépendances, les configurations, et même le système d’exploitation sous-jacent. Les images sont la base des conteneurs Docker, qui sont des instances exécutables de ces images.
+
+## Principe des Images Docker
+
+Une image Docker est constituée de **couches**. Chaque commande exécutée dans le fichier de création d’image, appelé **Dockerfile**, produit une nouvelle couche. Ces couches sont empilées les unes sur les autres pour former l'image finale. Docker utilise un mécanisme de **caching** qui permet de réutiliser les couches déjà créées, ce qui accélère la construction d’images et réduit la taille des conteneurs.
+
+Lorsqu'une image est exécutée, Docker crée un **conteneur** à partir de cette image. Ce conteneur est une instance isolée de l’image, dans laquelle l’application peut s’exécuter de manière indépendante, quelle que soit la machine hôte.
+
+## Avantages des Images Docker
+
+- **Portabilité** : Une image Docker peut être exécutée sur n'importe quel système où Docker est installé, garantissant un environnement cohérent à travers les différentes étapes du développement (local, staging, production).
+  
+- **Modularité** : Grâce aux couches, Docker permet de créer des images réutilisables. Par exemple, une image de base contenant un serveur web peut être utilisée comme fondation pour différentes applications.
+
+- **Efficacité** : En stockant chaque couche séparément, Docker optimise l'utilisation des ressources. Si plusieurs images partagent certaines couches, ces couches sont stockées une seule fois, réduisant ainsi la duplication de données.
+
+## Dockerfile : La recette des images
+
+Le **Dockerfile** est un fichier texte qui contient une série d’instructions pour construire une image Docker. Chaque ligne du Dockerfile correspond à une étape de la construction. Ces instructions incluent généralement la spécification de l’image de base, l’installation des dépendances, la copie du code source, et la configuration du comportement de l’application.
+
+En résumé, la création d'une image Docker permet de standardiser et de simplifier le déploiement d'applications, tout en garantissant une exécution uniforme, quel que soit l’environnement.

@@ -1,0 +1,101 @@
+Parfait ! Voici un contenu détaillé sur les fonctionnalités avancées de Git :
+
+# Fonctionnalités avancées de Git
+
+Dans cette section, nous allons explorer des fonctionnalités avancées de Git qui peuvent grandement améliorer votre workflow et votre maîtrise du système.
+
+## Revert et Reset
+
+### Revert
+
+Le `git revert` permet d'annuler un commit spécifique :
+
+```bash copy
+git revert HEAD~1
+```
+
+Cette commande crée un nouveau commit qui inverse les changements du commit précédent.
+
+### Reset
+
+Le `git reset` permet de réinitialiser un commit ou une série de commits :
+
+```bash copy
+git reset HEAD~1
+```
+
+Cette commande annule le dernier commit et libère les ressources associées.
+
+## Git Stash
+
+Le `git stash` permet de sauvegarder temporairement des modifications non validées :
+
+```bash copy
+git stash save "Description des modifications"
+```
+
+Pour appliquer les modifications stockées :
+
+```bash copy
+git stash apply
+```
+
+## Tags et Versions
+
+### Créer un tag
+
+Pour marquer une version spécifique du code :
+
+```bash copy
+git tag v1.0
+```
+
+### Lister les tags
+
+```bash copy
+git tag
+```
+
+### Pousser les tags
+
+```bash copy
+git push origin v1.0
+```
+
+## Exemple d'utilisation avancée
+
+Voici un exemple complet d'utilisation de ces fonctionnalités avancées :
+
+1. Modifiez un fichier et ajoutez des modifications
+2. Faites un commit accidentel
+3. Utilisez `git stash` pour sauvegarder temporairement les modifications
+4. Utilisez `git reset` pour annuler le commit accidentel
+5. Appliquez les modifications stockées avec `git stash apply`
+6. Créez un tag pour marquer cette version stable
+
+## Points clés à retenir
+
+- Le `git revert` permet d'annuler des commits sans toucher l'historique
+- Le `git reset` peut réinitialiser un commit ou une série de commits
+- `git stash` permet de sauvegarder temporairement des modifications
+- Les tags permettent de marquer des versions importantes du code
+
+## Bonnes pratiques avancées
+
+- Utilisez `git revert` plutôt que `git reset` quand possible pour maintenir l'historique
+- Faites des backups réguliers de vos données Git
+- Utilisez des tags pour marquer des versions majeures du projet
+- Explorez les plugins et extensions Git pour améliorer votre flux de travail
+
+## Commandes avancées utiles
+
+- `git reflog`: Affiche l'historique des références Git
+- `git cherry-pick`: Applique un commit spécifique à une branche
+- `git bisect`: Trouve le commit qui a introduit un problème
+- `git grep`: Recherche dans les fichiers du dépôt
+
+## Conclusion
+
+Mettre en œuvre ces fonctionnalités avancées de Git peut grandement améliorer votre productivité et votre capacité à gérer les problèmes de développement. N'hésitez pas à explorer davantage la documentation officielle de Git pour découvrir d'autres commandes et techniques avancées.
+
+En maîtrisant ces fonctionnalités, vous deviendrez un développeur Git plus agil et capable de gérer efficacement les défis du développement logiciel.

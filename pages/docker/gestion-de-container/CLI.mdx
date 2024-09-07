@@ -1,0 +1,124 @@
+# Liste des Commandes CLI Docker
+
+Voici une liste des commandes CLI Docker les plus courantes, classées par catégories pour une utilisation efficace.
+
+---
+
+## 1. **Commandes Générales**
+- **`docker --version`**  
+  Affiche la version de Docker installée sur la machine.
+
+- **`docker info`**  
+  Donne des informations détaillées sur l'installation Docker, comme le nombre de conteneurs, d'images et d'autres statistiques.
+
+- **`docker help`**  
+  Affiche l'aide et les commandes disponibles pour Docker.
+
+---
+
+## 2. **Gestion des Conteneurs**
+- **`docker run [options] IMAGE [command]`**  
+  Lance un nouveau conteneur à partir d'une image.
+
+- **`docker ps`**  
+  Liste les conteneurs en cours d'exécution.
+
+- **`docker ps -a`**  
+  Liste tous les conteneurs, qu'ils soient en cours d'exécution ou arrêtés.
+
+- **`docker stop CONTAINER`**  
+  Arrête un conteneur en cours d'exécution.
+
+- **`docker start CONTAINER`**  
+  Démarre un conteneur arrêté.
+
+- **`docker restart CONTAINER`**  
+  Redémarre un conteneur.
+
+- **`docker rm CONTAINER`**  
+  Supprime un ou plusieurs conteneurs arrêtés.
+
+- **`docker logs CONTAINER`**  
+  Affiche les logs d'un conteneur en cours d'exécution ou arrêté.
+
+- **`docker exec -it CONTAINER COMMAND`**  
+  Exécute une commande dans un conteneur en cours d'exécution (par exemple, accéder à un shell avec `/bin/bash`).
+
+---
+
+## 3. **Gestion des Images**
+- **`docker pull IMAGE`**  
+  Télécharge une image depuis un registre (par défaut Docker Hub).
+
+- **`docker build -t TAG PATH`**  
+  Crée une nouvelle image à partir d'un Dockerfile dans le répertoire spécifié.
+
+- **`docker images`**  
+  Liste toutes les images locales.
+
+- **`docker rmi IMAGE`**  
+  Supprime une ou plusieurs images locales.
+
+- **`docker tag IMAGE TAG`**  
+  Ajoute un tag à une image.
+
+---
+
+## 4. **Gestion des Volumes**
+- **`docker volume create VOLUME`**  
+  Crée un volume Docker pour stocker des données persistantes.
+
+- **`docker volume ls`**  
+  Liste tous les volumes Docker.
+
+- **`docker volume rm VOLUME`**  
+  Supprime un volume.
+
+---
+
+## 5. **Réseaux**
+- **`docker network create NETWORK`**  
+  Crée un nouveau réseau pour connecter des conteneurs.
+
+- **`docker network ls`**  
+  Liste les réseaux Docker.
+
+- **`docker network inspect NETWORK`**  
+  Donne des informations détaillées sur un réseau Docker.
+
+- **`docker network connect NETWORK CONTAINER`**  
+  Connecte un conteneur à un réseau Docker.
+
+- **`docker network disconnect NETWORK CONTAINER`**  
+  Déconnecte un conteneur d'un réseau Docker.
+
+---
+
+## 6. **Docker Compose**
+- **`docker-compose up`**  
+  Démarre les services définis dans un fichier `docker-compose.yml`.
+
+- **`docker-compose down`**  
+  Arrête et supprime les conteneurs et réseaux créés par `docker-compose up`.
+
+- **`docker-compose ps`**  
+  Liste les services définis par Docker Compose.
+
+- **`docker-compose logs`**  
+  Affiche les logs des services gérés par Docker Compose.
+
+---
+
+## 7. **Gestion des Registres**
+- **`docker login`**  
+  Authentification auprès d’un registre Docker (par défaut Docker Hub).
+
+- **`docker push IMAGE`**  
+  Pousse une image locale vers un registre Docker.
+
+- **`docker search TERM`**  
+  Recherche une image dans un registre Docker.
+
+---
+
+Ces commandes constituent une base essentielle pour l'utilisation quotidienne de Docker, que ce soit pour le développement, le test ou la mise en production d'applications.

@@ -1,0 +1,68 @@
+{
+    "docs": {
+        "title": "Docker Official Documentation ↗",
+        "type": "page",
+        "href": "https://docs.docker.com/",
+        "newWindow": true
+    },
+    "docker-university": {
+        "title": "Docker University ↗",
+        "type": "page",
+        "href": "https://training.docker.com/",
+        "newWindow": true
+    },
+    "docker-compose": {
+        "title": "Docker Compose Documentation ↗",
+        "type": "page",
+        "href": "https://docs.docker.com/compose/",
+        "newWindow": true
+    },
+    "docker-hub": {
+        "title": "Docker Hub Documentation ↗",
+        "type": "page",
+        "href": "https://hub.docker.com/_/documentation/",
+        "newWindow": true
+    },
+    "docker-community": {
+        "title": "Docker Community Forum ↗",
+        "type": "page",
+        "href": "https://forums.docker.com/",
+        "newWindow": true
+    },
+    "docker-youtube": {
+        "title": "Docker YouTube Channel ↗",
+        "type": "page",
+        "href": "https://www.youtube.com/channel/UCwXXdLHtKePP3KjafRvOjSw",
+        "newWindow": true
+    },
+    "docker-stackoverflow": {
+        "title": "Stack Overflow - Docker ↗",
+        "type": "page",
+        "href": "https://stackoverflow.com/questions/tagged/docker",
+        "newWindow": true
+    },
+    "docker-tutorials": {
+        "title": "Docker Tutorials ↗",
+        "type": "page",
+        "href": "https://www.docker.com/get-started",
+        "newWindow": true
+    },
+    "docker-images": {
+        "title": "Docker Images Documentation ↗",
+        "type": "page",
+        "href": "https://docs.docker.com/engine/images/",
+        "newWindow": true
+    },
+    "docker-networking": {
+        "title": "Docker Networking Tutorial ↗",
+        "type": "page",
+        "href": "https://docs.docker.com/network/",
+        "newWindow": true
+    },
+    "docker-volume": {
+        "title": "Docker Volumes Documentation ↗",
+        "type": "page",
+        "href": "https://docs.docker.com/storage/",
+        "newWindow": true
+    }
+}

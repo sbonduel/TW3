@@ -1,0 +1,14 @@
+{
+    "index": {
+        "title": "Introduction à Node.js",
+        "theme": {
+            "breadcrumb": false
+        }
+    },
+    "installation": "Installation",
+    "fondamentaux": "Fondamentaux",
+    "resume": "TLDR",
+    "plan": {
+        "display": "hidden"
+    }
+}

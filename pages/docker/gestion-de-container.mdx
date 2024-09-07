@@ -1,0 +1,107 @@
+import { Callout } from 'nextra/components'
+
+# Gestion de Conteneurs Docker
+
+La commande `docker run` est essentielle pour exécuter des conteneurs Docker à partir
+d'images préalablement créées. Elle permet de spécifier diverses options et paramètres
+pour personnaliser le comportement du conteneur.
+
+## Exécution d'une Image Docker
+
+La syntaxe de base de la commande docker run est la suivante :
+```bash
+docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+```
+- **OPTIONS** : Ce sont des options facultatives qui permettent de configurer le comportement
+du conteneur (par exemple, le réseau, les volumes, les ports, etc.).
+- **IMAGE** : C'est le nom de l'image Docker à partir de laquelle vous souhaitez exécuter un
+conteneur.
+- **COMMAND** : Il s'agit de la commande que vous souhaitez exécuter à l'intérieur du
+conteneur (par exemple, un script ou une application).
+- **ARG** : Ce sont des arguments supplémentaires que vous souhaitez passer à la commande
+à l'intérieur du conteneur.
+
+Exemple :
+```bash copy
+docker run -d -p 80:80 --name mon-serveur-web nginx
+```
+- -d : Cela signifie que le conteneur sera exécuté en arrière-plan (mode détaché).
+- -p 80:80 : Cela mappe le port 80 du conteneur au port 80 de l'hôte, permettant ainsi
+d'accéder au serveur web depuis le navigateur.
+- --name mon-serveur-web : Cela attribue un nom personnalisé ("mon-serveur-web") au
+conteneur.
+- nginx : C'est le nom de l'image Docker à utiliser.
+
+## Vérification de l'Exécution
+
+Pour vérifier que le conteneur est en cours d'exécution, utilisez la commande :
+```bash copy
+docker ps
+```
+Cela affichera une liste des conteneurs en cours d'exécution, y compris leur ID, leur nom,
+leur image, leurs ports mappés, etc.
+```ansi
+docker ps --no-trunc
+
+CONTAINER ID                                                     IMAGE                        COMMAND                CREATED              STATUS              PORTS               NAMES
+ca5534a51dd04bbcebe9b23ba05f389466cf0c190f1f8f182d7eea92a9671d00 ubuntu:24.04                 bash                   17 seconds ago       Up 16 seconds       3300-3310/tcp       webapp
+9ca9747b233100676a48cc7806131586213fa5dab86dd1972d6a8732e3a84a4d crosbymichael/redis:latest   /redis-server --dir    33 minutes ago       Up 33 minutes       6379/tcp            redis,webapp/db
+```
+
+## Accès au Conteneur
+Pour accéder au conteneur, vous pouvez ouvrir un navigateur web et entrer l'adresse IP de
+l'hôte ou localhost suivi du numéro de port (dans cet exemple, http://localhost:80).
+
+Vous verrez la page d'accueil par défaut de Nginx.
+
+## Arrêt et Suppression du Conteneur
+
+Pour arrêter le conteneur, utilisez la commande :
+```bash copy
+docker stop mon-serveur-web
+```
+
+Pour supprimer le conteneur, utilisez la commande :
+```bash copy
+docker rm mon-serveur-web
+```
+Le nom du conteneur (mon-serveur-web dans cet exemple) est utilisé pour l'arrêter et le
+supprimer.
+<Callout type="info">
+Vous pouvez utiliser des scripts comme commande pour vous faire gagner du temps.
+```bash copy
+docker stop $(docker ps -a -q)
+```
+La commande `docker stop $(docker ps -a -q)` est utilisée pour arrêter tous les
+conteneurs Docker en cours d'exécution sur votre système. Voici une explication détaillée de
+cette commande :
+
+- `docker stop` : Cette partie de la commande est utilisée pour arrêter des conteneurs Docker.
+Vous lui fournissez les IDs des conteneurs que vous souhaitez arrêter en les plaçant après
+docker stop.
+- `docker ps -a` : Cette partie de la commande liste tous les conteneurs Docker, qu'ils soient
+actuellement en cours d'exécution ou qu'ils soient arrêtés. L'option -a signifie "all" (tous) et
+inclut donc tous les conteneurs.
+- `docker ps -a -q` : Cette partie de la commande est une extension de la précédente, mais
+elle n'affiche que les IDs (identifiants) des conteneurs au lieu de toutes les informations
+détaillées. L'option -q signifie "quiet" (silencieux) et ne renvoie que les IDs.
+- `$(docker ps -a -q)` : Cette partie de la commande est une substitution de commande
+(command substitution) qui prend la sortie (les IDs des conteneurs) de docker ps -a -q et
+l'utilise comme argument pour la commande suivante.
+
+En combinant ces éléments, la commande `docker stop $(docker ps -a -q)` fait ce qui
+suit :
+- `docker ps -a -q` récupère les IDs de tous les conteneurs Docker (en cours d'exécution
+et arrêtés).
+- Ces IDs sont ensuite fournis en tant qu'arguments à la commande docker stop, ce
+qui signifie que Docker va arrêter tous les conteneurs dont les IDs ont été récupérés
+par la première partie de la commande.
+
+Cette commande est utile lorsque vous souhaitez nettoyer votre système en arrêtant tous
+les conteneurs actifs et/ou arrêtés en une seule commande. Cela peut être particulièrement
+pratique lors de la gestion de nombreux conteneurs en même temps.
+<Callout type="warning" emoji="⚠️">
+Assurez-vous d'utiliser cette commande avec précaution, car elle arrêtera tous les
+conteneurs sans distinction.
+</Callout>
+</Callout>

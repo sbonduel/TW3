@@ -1,0 +1,29 @@
+# Introduction Théorique : Réseau et Stockage dans Docker
+
+Dans l'écosystème Docker, la gestion du réseau et du stockage est cruciale pour permettre aux conteneurs de communiquer entre eux et en garantissant la persistance des données. Ces concepts sont fondamentaux lorsque vous développez des applications distribuées, nécessitant une interconnexion entre plusieurs services, ou lorsque vous souhaitez que vos données survivent au redémarrage des conteneurs. 
+
+## 1. **Réseau Docker**
+
+Docker offre plusieurs mécanismes de mise en réseau permettant de connecter des conteneurs entre eux, à l’hôte, ou à d’autres systèmes. Docker crée par défaut un réseau interne pour chaque conteneur, mais il existe plusieurs types de réseaux que l’on peut utiliser selon les besoins :
+
+- **Bridge (Pont)** : C’est le réseau par défaut pour les conteneurs Docker. Chaque conteneur rejoint un réseau privé isolé. Les conteneurs peuvent communiquer entre eux via des adresses IP internes, mais ne sont pas directement accessibles depuis l'extérieur à moins d'exposer des ports spécifiques.
+  
+- **Host** : Avec ce réseau, un conteneur partage directement le réseau de l’hôte, ce qui permet d’éviter la couche d’abstraction du réseau Docker. Cela peut être plus rapide, mais présente un niveau d’isolation plus faible.
+  
+- **Overlay** : Utilisé principalement pour les orchestrations multi-hôtes, ce réseau permet aux conteneurs sur différents hôtes (machines physiques ou virtuelles) de communiquer entre eux. C'est un composant clé de Docker Swarm ou Kubernetes.
+
+- **None** : Ce mode de réseau isole complètement un conteneur du réseau. Le conteneur n’a pas d’accès réseau, ce qui peut être utile pour des applications nécessitant une isolation complète.
+
+## 2. **Stockage Docker**
+
+Les conteneurs Docker sont par défaut éphémères. Cela signifie que toute donnée créée à l’intérieur d’un conteneur est perdue lorsqu’il est arrêté ou supprimé. Pour rendre les données persistantes, Docker fournit des mécanismes de stockage :
+
+- **Volumes** : C'est le moyen recommandé pour garantir la persistance des données. Les volumes sont des espaces de stockage gérés par Docker et situés en dehors du système de fichiers des conteneurs. Ils permettent de stocker des données qui restent accessibles même après la suppression d’un conteneur. Les volumes peuvent être partagés entre plusieurs conteneurs.
+
+- **Bind Mounts** : Ce mécanisme permet de monter un répertoire de l’hôte directement dans un conteneur. Contrairement aux volumes, le chemin de destination est entièrement sous le contrôle de l'utilisateur. Cela permet de partager des fichiers entre l'hôte et le conteneur, mais avec un contrôle plus direct sur le système de fichiers de l’hôte.
+
+- **Tmpfs** : Ce type de montage stocke les données directement en mémoire, donc elles ne sont pas persistantes. Cela peut être utile pour stocker des données temporaires ou sensibles qui ne doivent pas rester sur disque.
+
+## Conclusion
+
+Dans Docker, la gestion du réseau permet de définir comment les conteneurs communiquent entre eux et avec l'extérieur, tandis que le stockage permet en garantir la persistance des données au-delà du cycle de vie d'un conteneur. La combinaison de ces deux fonctionnalités est essentielle pour le développement d'applications scalables, persistantes et distribuées.

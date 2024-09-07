@@ -1,0 +1,88 @@
+# Cas Pratique : Réseau Docker
+
+Dans ce cas pratique, nous allons explorer le fonctionnement des réseaux Docker à travers un exemple concret de deux conteneurs Docker qui communiquent entre eux via un réseau **bridge**.
+
+## Objectif
+
+Nous allons :
+1. Créer un réseau personnalisé Docker.
+2. Lancer deux conteneurs : un serveur web Nginx et un client Curl.
+3. Configurer ces conteneurs pour qu'ils communiquent via le réseau personnalisé.
+
+## Étape 1 : Créer un Réseau Docker
+
+Docker fournit plusieurs types de réseaux, mais nous allons utiliser un réseau de type **bridge** personnalisé. Par défaut, Docker attribue à chaque conteneur un réseau privé isolé, mais nous allons créer un réseau commun pour que nos conteneurs puissent communiquer entre eux.
+
+Créez un réseau Docker en utilisant la commande suivante :
+
+```bash
+docker network create my-custom-network
+```
+
+Cette commande crée un réseau de type bridge appelé `my-custom-network`. Vous pouvez vérifier sa création avec :
+
+```bash
+docker network ls
+```
+
+Vous verrez votre réseau personnalisé dans la liste des réseaux.
+
+## Étape 2 : Lancer un Serveur Web Nginx dans le Réseau
+
+Maintenant, nous allons lancer un conteneur Nginx et le connecter au réseau que nous avons créé.
+
+```bash
+docker run -d --name my-nginx --network my-custom-network nginx
+```
+
+Explications :
+- **`-d`** : Lance le conteneur en mode détaché (en arrière-plan).
+- **`--name my-nginx`** : Nom du conteneur (facilitera la communication).
+- **`--network my-custom-network`** : Connecte le conteneur au réseau personnalisé `my-custom-network`.
+- **`nginx`** : Utilise l'image Nginx officielle.
+
+Vérifiez que le conteneur est en cours d'exécution avec :
+
+```bash
+docker ps
+```
+
+## Étape 3 : Lancer un Conteneur Client (Curl)
+
+Pour tester la communication, nous allons lancer un second conteneur contenant **Curl**, un utilitaire en ligne de commande pour effectuer des requêtes HTTP, afin d’accéder au serveur Nginx.
+
+```bash
+docker run -it --network my-custom-network curlimages/curl curl my-nginx
+```
+
+Explications :
+- **`-it`** : Lance le conteneur en mode interactif (pour que Curl puisse afficher la sortie).
+- **`--network my-custom-network`** : Connecte ce conteneur au même réseau que `my-nginx`.
+- **`curlimages/curl`** : Utilise une image légère de Curl.
+- **`curl my-nginx`** : Effectue une requête HTTP sur le conteneur `my-nginx` (via son nom DNS dans le réseau Docker).
+
+Si tout fonctionne correctement, vous devriez voir une réponse HTML du serveur Nginx.
+
+## Étape 4 : Inspecter le Réseau
+
+Pour mieux comprendre comment Docker gère le réseau, inspectons-le :
+
+```bash
+docker network inspect my-custom-network
+```
+
+Cette commande affichera les détails du réseau, y compris les conteneurs connectés, leurs adresses IP internes, et d'autres informations pertinentes.
+
+## Étape 5 : Nettoyage
+
+Une fois terminé, vous pouvez arrêter et supprimer les conteneurs et le réseau avec ces commandes :
+
+```bash
+docker stop my-nginx
+docker rm my-nginx
+docker network rm my-custom-network
+```
+
+## Conclusion
+
+Ce cas pratique illustre la manière dont Docker utilise les réseaux pour permettre la communication entre les conteneurs. Grâce à Docker, il est possible de créer des réseaux isolés et de gérer facilement la communication entre les services, ce qui est essentiel dans les environnements d’applications distribuées.

@@ -1,0 +1,86 @@
+# Installation et configuration de Git
+
+Dans cette section, nous allons voir comment installer Git sur votre système et le configurer correctement.
+
+## Installation de Git
+
+### Sur Windows
+
+Pour installer Git sur Windows :
+
+1. Allez sur le site officiel de Git pour Windows : https://git-scm.com/download/win
+2. Téléchargez l'exécutable .exe
+3. Exécutez-le et suivez les instructions à l'écran
+4. Choisissez les options souhaitées pendant l'installation
+
+### Sur macOS
+
+Pour installer Git sur macOS :
+
+1. Ouvrez le Terminal
+2. Tapez la commande suivante et appuyez sur Entrée :
+   ```bash copy
+   brew install git
+   ```
+
+### Sur Linux
+
+Pour installer Git sur Linux :
+
+1. Ouvrez un terminal
+2. Si vous utilisez Ubuntu ou Debian, tapez :
+   ```bash copy
+   sudo apt-get update
+   sudo apt-get install git
+   ```
+3. Si vous utilisez Fedora, tapez :
+   ```bash copy
+   sudo dnf install git
+   ```
+
+## Configuration initiale
+
+Après l'installation, configurez Git avec vos informations personnelles :
+
+```bash copy
+git config --global user.name "Votre Nom"
+git config --global user.email "votre.email@example.com"
+```
+
+Ces commandes définissent votre nom et votre adresse e-mail comme identifiant Git global.
+
+## Outils graphiques pour Git
+
+Bien que la ligne de commande soit puissante, certains développeurs préfèrent utiliser des interfaces graphiques. Voici quelques options populaires :
+
+### GitHub Desktop
+
+- Disponible gratuitement sur Windows et macOS
+- Offre une interface simple pour les débutants
+- Intégrée à GitHub
+
+### GitKraken
+
+- Interface moderne et intuitive
+- Gratuit pour les projets personnels
+- Offre des fonctionnalités avancées
+
+### Sourcetree
+
+- Propriété de Atlassian (créateurs de Bitbucket)
+- Interface claire et facile à utiliser
+- Gratuit pour les projets personnels
+
+## Vérification de la configuration
+
+Pour vérifier que votre configuration est correcte, exécutez :
+
+```bash
+git config --list
+```
+
+Cela affichera toutes vos configurations Git actuelles.
+
+## Conclusion
+
+L'installation et la configuration de Git sont des étapes cruciales pour commencer à utiliser ce système de contrôle de versions. Une bonne configuration garantit que vos commits seront associés à votre compte Git correct.
