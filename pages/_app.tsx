@@ -16,9 +16,7 @@ function colorsByPath(path: string) {
 }
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-    const { ...all } = useConfig()
-    console.log(all)
-    const { asPath, defaultLocale, locale } = useRouter()
+    const { asPath } = useRouter()
     const [hue, setHue] = useState(212);
     const [saturation, setSaturation] = useState(100);
     useEffect(() => {
