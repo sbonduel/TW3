@@ -1,66 +1,55 @@
 {
-    "docs": {
+    "docker-official-docs": {
+        "title": "Documentation officielle Docker",
         "title": "Docker Official Documentation ↗",
         "type": "page",
         "href": "https://docs.docker.com/",
         "newWindow": true
     },
-    "docker-university": {
-        "title": "Docker University ↗",
-        "type": "page",
-        "href": "https://training.docker.com/",
-        "newWindow": true
-    },
-    "docker-compose": {
-        "title": "Docker Compose Documentation ↗",
+    "docker-compose-docs": {
+        "title": "Documentation Docker Compose",
         "type": "page",
         "href": "https://docs.docker.com/compose/",
         "newWindow": true
     },
-    "docker-hub": {
-        "title": "Docker Hub Documentation ↗",
+    "docker-hub-docs": {
+        "title": "Documentation Docker Hub",
         "type": "page",
-        "href": "https://hub.docker.com/_/documentation/",
+        "href": "https://docs.docker.com/docker-hub/",
         "newWindow": true
     },
-    "docker-community": {
-        "title": "Docker Community Forum ↗",
+    "docker-forum": {
+        "title": "Forum Docker Community",
         "type": "page",
         "href": "https://forums.docker.com/",
         "newWindow": true
     },
-    "docker-youtube": {
-        "title": "Docker YouTube Channel ↗",
-        "type": "page",
-        "href": "https://www.youtube.com/channel/UCwXXdLHtKePP3KjafRvOjSw",
-        "newWindow": true
-    },
-    "docker-stackoverflow": {
-        "title": "Stack Overflow - Docker ↗",
+    "docker-stackoverflow-tag": {
+        "title": "Stack Overflow - Docker",
         "type": "page",
         "href": "https://stackoverflow.com/questions/tagged/docker",
         "newWindow": true
     },
-    "docker-tutorials": {
-        "title": "Docker Tutorials ↗",
+    "docker-get-started": {
+        "title": "Tutoriels Docker",
         "type": "page",
         "href": "https://www.docker.com/get-started",
         "newWindow": true
     },
-    "docker-images": {
-        "title": "Docker Images Documentation ↗",
+    "docker-images-docs": {
+        "title": "Documentation Images Docker",
         "type": "page",
-        "href": "https://docs.docker.com/engine/images/",
+        "href": "https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/",
         "newWindow": true
     },
-    "docker-networking": {
-        "title": "Docker Networking Tutorial ↗",
+    "docker-networking-tutorial": {
+        "title": "Tutoriel Réseau Docker",
         "type": "page",
         "href": "https://docs.docker.com/network/",
         "newWindow": true
     },
-    "docker-volume": {
-        "title": "Docker Volumes Documentation ↗",
+    "docker-volumes-docs": {
+        "title": "Documentation Volumes Docker",
         "type": "page",
         "href": "https://docs.docker.com/storage/",
         "newWindow": true

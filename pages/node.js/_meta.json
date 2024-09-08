@@ -10,5 +10,9 @@
     "resume": "TLDR",
     "plan": {
         "display": "hidden"
-    }
+    },
+    "---": {
+        "type": "separator"
+    },
+    "ressources": "Ressources"
 }

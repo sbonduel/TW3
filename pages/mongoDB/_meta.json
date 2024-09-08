@@ -1,0 +1,19 @@
+{
+  "index": "Introduction à MongoDB",
+  "installation": "Installation",
+  "nosql": "NoSQL",
+  "mongo": "Fondamentaux MongoDB",
+  "modelisation": "Modélisation",
+  "crud": "CRUD",
+  "avance": "Avancées",
+  "about": {
+    "title": "À propos",
+    "type": "page"
+  },
+  "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "mailto:michael.bardy@occitaweb.fr"
+  },
+  "ressources": "Ressources"
+}

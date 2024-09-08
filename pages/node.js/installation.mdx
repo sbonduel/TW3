@@ -8,25 +8,26 @@ import { Callout } from 'nextra/components'
 
 L'installation de Node.js inclut automatiquement l'installation de **NPM** (Node Package Manager). Voici les étapes pour installer Node.js sur différents systèmes d'exploitation :
 
-## **Pour Windows :**
+## **Pour Windows**
   1. Rendez-vous sur le site officiel de [Node.js](https://nodejs.org/).
   2. Téléchargez le fichier d'installation pour Windows (généralement un fichier `.msi`).
   3. Exécutez le fichier téléchargé et suivez les instructions de l'assistant d'installation.
   4. Assurez-vous de cocher l'option pour installer **NPM** lors du processus d'installation.
 
-## **Pour macOS :**
+## **Pour macOS**
   1. Téléchargez le fichier d'installation pour macOS depuis le site officiel de [Node.js](https://nodejs.org/).
   2. Ouvrez le fichier `.pkg` téléchargé et suivez les instructions pour installer Node.js et NPM.
   3. Alternativement, vous pouvez utiliser un gestionnaire de paquets comme **Homebrew**. Ouvrez le terminal et exécutez : `brew install node`.
 
-## **Pour Linux :**
+## **Pour Linux**
   1. Vous pouvez installer Node.js via les gestionnaires de paquets de votre distribution. Par exemple, sur Ubuntu :
-     ```bash
+
+     ```bash copy
      sudo apt update
      sudo apt install nodejs npm
      ```
   2. Pour les dernières versions, vous pouvez utiliser **nvm** (Node Version Manager). Installez nvm en suivant les instructions sur le [GitHub de nvm](https://github.com/nvm-sh/nvm), puis installez Node.js avec :
-     ```bash
+     ```bash copy
      nvm install node
      ```
 
@@ -36,14 +37,15 @@ Après l'installation, il est important de vérifier que Node.js et NPM sont cor
 
 1. Ouvrez votre terminal (ou invite de commande sous Windows).
 2. Tapez les commandes suivantes pour vérifier les versions installées :
-   ```bash
-   node -v
-   ```
-   Cela affichera la version de Node.js installée.
-   ```bash
-   npm -v
-   ```
-   Cela affichera la version de NPM installée.
+
+```bash copy
+node -v
+```
+Cela affichera la version de Node.js installée.
+```sh copy
+npm -v
+```
+Cela affichera la version de NPM installée.
 
 Si ces commandes retournent les versions respectives sans erreur, l'installation est réussie.
 
@@ -52,7 +54,8 @@ Si ces commandes retournent les versions respectives sans erreur, l'installation
 **NPM** (Node Package Manager) est un gestionnaire de paquets pour le langage de programmation JavaScript. Il est fourni avec Node.js et est utilisé pour gérer les dépendances dans les projets JavaScript. NPM permet aux développeurs de :
 
 - **Installer des modules** : NPM permet de télécharger et d'installer des bibliothèques et des outils tiers nécessaires au développement de votre projet. Par exemple, pour ajouter le module `express` (un framework pour Node.js), vous utilisez :
-  ```bash
+
+  ```sh npm2yarn copy
   npm install express
   ```
 
@@ -61,6 +64,7 @@ Si ces commandes retournent les versions respectives sans erreur, l'installation
 - **Partager des modules** : Vous pouvez également publier vos propres modules sur le registre NPM pour les partager avec la communauté. Cela se fait via le site de NPM ou en utilisant la commande `npm publish`.
 
 - **Exécuter des scripts** : NPM permet de définir et d'exécuter des scripts pour automatiser des tâches courantes comme les tests, la construction ou le déploiement de votre application. Ces scripts sont définis dans le fichier `package.json` et peuvent être exécutés avec :
-```bash
+
+```sh
 npm run <script-name>
 ```

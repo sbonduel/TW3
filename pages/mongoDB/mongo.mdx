@@ -1,0 +1,93 @@
+import { Tabs } from 'nextra/components'
+ 
+# Utilisation du Shell MongoDB
+
+Le shell MongoDB est une interface en ligne de commande qui vous permet d'interagir avec votre base de données MongoDB. Voici quelques commandes et opérations de base pour vous familiariser avec l'utilisation du shell MongoDB.
+
+### Démarrage du Shell MongoDB
+
+1. **Démarrer le Shell :**
+   - Ouvrez un terminal et exécutez la commande suivante pour accéder au shell MongoDB :
+<Tabs items={['docker', 'local']}>
+  <Tabs.Tab>
+    ```bash copy
+    docker exec -it mon-container-mongodb bash
+     ```
+     puis :
+    ```bash copy
+    mongosh
+     ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash copy
+     mongo
+     ```
+</Tabs.Tab>
+</Tabs>
+
+### Opérations CRUD dans le Shell MongoDB
+
+1. **Création (Insertion) :**
+   - Insérer un nouveau document dans une collection :
+     ```javascript copy
+     db.ma_collection.insertOne({ "nom": "John Doe", "age": 25, "ville": "Villebourg" });
+     ```
+
+2. **Lecture (Read) :**
+   - Lire tous les documents d'une collection :
+     ```javascript copy
+     db.ma_collection.find();
+     ```
+
+   - Lire un document spécifique en fonction d'un critère :
+     ```javascript copy
+     db.ma_collection.find({ "ville": "Villebourg" });
+     ```
+
+3. **Mise à Jour (Update) :**
+   - Mettre à jour un document existant dans une collection :
+     ```javascript copy
+     db.ma_collection.updateOne({ "nom": "John Doe" }, { $set: { "age": 26 } });
+     ```
+
+4. **Suppression (Delete) :**
+   - Supprimer un document en fonction d'un critère :
+     ```javascript copy
+     db.ma_collection.deleteOne({ "nom": "John Doe" });
+     ```
+
+### Autres Opérations Utiles
+
+1. **Lister les Bases de Données :**
+   - Lister toutes les bases de données :
+     ```bash copy
+     show dbs;
+     ```
+
+2. **Sélectionner une Base de Données :**
+   - Sélectionner une base de données pour les opérations suivantes :
+     ```bash copy
+     use ma_base_de_donnees;
+     ```
+
+3. **Lister les Collections dans une Base de Données :**
+   - Lister toutes les collections dans la base de données actuelle :
+     ```bash copy
+     show collections;
+     ```
+
+4. **Afficher l'Aide :**
+   - Obtenir de l'aide sur diverses commandes MongoDB :
+     ```bash copy
+     help
+     ```
+
+### Quitter le Shell MongoDB
+
+Pour quitter le shell MongoDB, utilisez la commande suivante :
+
+```bash copy
+exit
+```
+
+Ces commandes de base devraient vous donner un bon point de départ pour explorer MongoDB à travers son shell. N'hésitez pas à expérimenter et à poser des questions si quelque chose n'est pas clair !

@@ -1,0 +1,61 @@
+# State et Cycle de Vie des Composants
+
+Le state est une caractéristique interne d'un composant React qui stocke des informations qui peuvent changer au fil du temps. Lorsque le state d'un composant change, le composant se re-rend et met à jour l'interface utilisateur.
+
+Voici un exemple de composant avec un state :
+
+```jsx
+import React, { useState } from 'react';
+
+function Counter() {
+ const [count, setCount] = useState(0);
+
+ return (
+  <div>
+    <p>You clicked {count} times</p>
+    <button onClick={() => setCount(count + 1)}>
+      Click me
+    </button>
+  </div>
+ );
+}
+```
+
+Dans cet exemple, nous avons un composant `Counter` avec un state `count`. Nous utilisons la fonction `useState` pour créer ce state. `useState` retourne un tableau avec deux éléments : la valeur actuelle du state et une fonction pour la mettre à jour.
+
+Le cycle de vie d'un composant React est une série d'étapes que le composant suit depuis sa création jusqu'à sa destruction. Ces étapes sont définies par les méthodes de cycle de vie que vous pouvez surcharger dans votre composant.
+
+Voici un exemple de composant avec des méthodes de cycle de vie :
+
+```jsx
+import React, { Component } from 'react';
+
+class Example extends Component {
+ constructor(props) {
+  super(props);
+  this.state = { count: 0 };
+ }
+
+ componentDidMount() {
+  console.log('Component mounted');
+ }
+
+ componentDidUpdate() {
+  console.log('Component updated');
+ }
+
+ componentWillUnmount() {
+  console.log('Component will unmount');
+ }
+
+ render() {
+  return <div>{this.state.count}</div>;
+ }
+}
+```
+
+Dans cet exemple, nous avons un composant `Example` avec trois méthodes de cycle de vie :
+
+- `componentDidMount` : cette méthode est appelée après que le composant a été inséré dans l'arbre DOM.
+- `componentDidUpdate` : cette méthode est appelée après que le composant a été mis à jour.
+- `componentWillUnmount` : cette méthode est appelée juste avant que le composant ne soit retiré de l'arbre DOM.

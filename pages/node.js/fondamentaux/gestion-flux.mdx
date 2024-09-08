@@ -7,7 +7,7 @@ Dans cette section, nous explorerons comment Node.js gère les fichiers et les f
 Le module `fs` de Node.js fournit une interface pour interagir avec le système de fichiers, permettant de lire, écrire, supprimer, et manipuler des fichiers. Voici un exemple de lecture et d’écriture de fichiers avec le module `fs`.
 
 ### **Lecture d’un fichier**
-  ```javascript
+  ```javascript copy
   const fs = require('fs');
 
   fs.readFile('exemple.txt', 'utf8', (err, data) => {
@@ -21,7 +21,7 @@ Le module `fs` de Node.js fournit une interface pour interagir avec le système 
   Ici, `fs.readFile` lit un fichier de manière asynchrone. Si une erreur survient (par exemple, si le fichier n'existe pas), elle est capturée et affichée.
 
 ### **Écriture dans un fichier**
-  ```javascript
+  ```javascript copy
   const fs = require('fs');
 
   const contenu = 'Ceci est un exemple de texte.';
@@ -48,7 +48,7 @@ Il existe quatre types de flux en Node.js :
 Voici un exemple de lecture de fichier en utilisant un flux (`stream`):
 
 - **Lecture avec flux (`streams`)** :
-  ```javascript
+  ```javascript copy
   const fs = require('fs');
 
   const readStream = fs.createReadStream('grosFichier.txt', 'utf8');
@@ -66,7 +66,7 @@ Voici un exemple de lecture de fichier en utilisant un flux (`stream`):
 **Les buffers** sont des zones de mémoire brute allouées pour stocker des données binaires, souvent utilisées lors de la manipulation de flux.
 
 ### **Utilisation d’un buffer**
-  ```javascript
+  ```javascript copy
   const buffer = Buffer.from('Bonjour');
   console.log(buffer);  // <Buffer 42 6f 6e 6a 6f 75 72>
   console.log(buffer.toString());  // 'Bonjour'

@@ -18,14 +18,14 @@ Une branche est une ligne temporaire de développement. Elle permet de tester de
 
 Pour créer une nouvelle branche et vous y transférer immédiatement :
 
-```bash
+```bash copy
 git branch nom_de_la_branche
 git checkout nom_de_la_branche
 ```
 
 Ou de manière plus concise :
 
-```bash
+```bash copy
 git checkout -b nom_de_la_branche
 ```
 
@@ -33,7 +33,7 @@ git checkout -b nom_de_la_branche
 
 Pour voir toutes les branches locales :
 
-```bash
+```bash copy
 git branch
 ```
 
@@ -43,7 +43,7 @@ La branche active sera marquée d'un astérisque (*).
 
 Pour changer de branche :
 
-```bash
+```bash copy
 git checkout nom_de_la_branche
 ```
 
@@ -51,7 +51,7 @@ git checkout nom_de_la_branche
 
 Pour supprimer une branche locale :
 
-```bash
+```bash copy
 git branch -d nom_de_la_branche
 ```
 
@@ -61,13 +61,13 @@ Attention : cela ne supprime pas la branche sur le dépôt distant !
 
 Pour fusionner une branche dans la branche active :
 
-```bash
+```bash copy
 git merge nom_de_la_branche_a_fusionner
 ```
 
 Si vous êtes déjà sur la branche à fusionner, utilisez :
 
-```bash
+```bash copy
 git merge ..
 ```
 
@@ -76,21 +76,21 @@ git merge ..
 Essayez maintenant de mettre en œuvre ces concepts :
 
 1. Commencez par créer une branche nommée `feature` :
-   ```bash
+   ```bash copy
    git checkout -b feature
    ```
 2. Modifiez un fichier existant dans votre dépôt principal
 3. Faites un commit sur la branche `feature` :
-   ```bash
+   ```bash copy
    git add .
    git commit -m "Ajout de nouvelles fonctionnalités"
    ```
 4. Retournez à la branche principale :
-   ```bash
+   ```bash copy
    git checkout main
    ```
 5. Fusionnez les changements de la branche `feature` :
-   ```bash
+   ```bash copy
    git merge feature
    ```
 6. Vérifiez que tout fonctionne bien avec `git log`

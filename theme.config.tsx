@@ -13,15 +13,15 @@ const config: DocsThemeConfig = {
     defaultMenuCollapseLevel: 1
   },
   search: {
-    placeholder: "Chercher dans le cours",
+    placeholder: "Chercher dans les cours",
     emptyResult: "Aucun résultat",
     error: "Oups petit probléme... réessayez",
-    loading: "Recherche en cours"
+    loading: "Recherche en cours..."
   },
   primaryHue: { dark: 212, light: 212 },
   primarySaturation: { dark: 100, light: 100 },
   editLink: { text: null },
-  toc: { title: "Sur cette page" },
+  toc: { title: "Navigation" },
   feedback: {
     content: "Une question ou un problème ?",
   },

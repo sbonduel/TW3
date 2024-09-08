@@ -2,14 +2,14 @@
 
 NPM offre un ensemble de commandes pratiques qui permettent de gérer facilement les dépendances, de configurer des scripts d’automatisation, et bien plus encore. Voici une liste des commandes NPM les plus couramment utilisées et leurs fonctionnalités principales :
 
-## 1. **Initialisation d’un projet**
+## Initialisation d’un projet
 - **`npm init`** : Cette commande initialise un nouveau projet Node.js et crée un fichier `package.json`, qui contient les informations sur le projet et ses dépendances.
   ```bash copy
   npm init
   ```
   Vous pouvez également utiliser `npm init -y` pour générer un `package.json` avec les valeurs par défaut sans passer par l'interaction utilisateur.
 
-## 2. **Installation de paquets**
+## Installation de paquets
 - **`npm install <nom_du_paquet>`** : Installe un paquet dans le projet local. Le paquet sera ajouté à la liste des dépendances dans le fichier `package.json`.
   ```bash copy
   npm install express
@@ -19,7 +19,7 @@ NPM offre un ensemble de commandes pratiques qui permettent de gérer facilement
   npm install -g nodemon
   ```
 
-## 3. **Gestion des dépendances**
+## Gestion des dépendances
 - **`npm install`** : Installe toutes les dépendances listées dans le fichier `package.json`. Cette commande est souvent utilisée lorsqu’on clone un projet ou qu’on récupère un projet existant.
   ```bash copy
   npm install
@@ -33,7 +33,7 @@ NPM offre un ensemble de commandes pratiques qui permettent de gérer facilement
   npm uninstall express
   ```
 
-## 4. **Scripts NPM**
+## Scripts NPM
 - **`npm run <nom_du_script>`** : Permet d'exécuter les scripts définis dans le fichier `package.json`. Les scripts automatisent des tâches telles que les tests, le lancement d’un serveur ou la compilation de fichiers.
   ```bash copy
   npm run build
@@ -50,7 +50,7 @@ Les scripts sont définis dans la section "scripts" du fichier `package.json` :
 }
 ```
 
-## 5. **Dépôt et publication**
+## Dépôt et publication
 - **`npm publish`** : Publie votre paquet sur le registre NPM, rendant votre module disponible pour la communauté.
   ```bash copy
   npm publish
@@ -60,7 +60,7 @@ Les scripts sont définis dans la section "scripts" du fichier `package.json` :
   npm login
   ```
 
-## 6. **Vérification de la version**
+## Vérification de la version
 - **`npm -v`** : Affiche la version actuelle de NPM installée sur la machine.
   ```bash copy
   npm -v

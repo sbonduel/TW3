@@ -1,0 +1,31 @@
+# Réponses de mongoDB
+
+Les réponses retournées par MongoDB dépendent du type d'opération effectuée. Voici une liste des différents champs que vous pourriez rencontrer dans les réponses de MongoDB pour différentes opérations courantes :
+
+1. **Opérations d'Insertion :**
+   - `acknowledged`: Indique si l'opération a été effectuée avec succès.
+   - `insertedId`: L'identifiant du document nouvellement inséré.
+
+2. **Opérations de Mise à Jour :**
+   - `acknowledged`: Indique si l'opération a été effectuée avec succès.
+   - `matchedCount`: Le nombre de documents correspondant aux critères de recherche spécifiés.
+   - `modifiedCount`: Le nombre de documents effectivement modifiés.
+
+3. **Opérations de Suppression :**
+   - `acknowledged`: Indique si l'opération a été effectuée avec succès.
+   - `deletedCount`: Le nombre de documents effectivement supprimés.
+
+4. **Opérations de Recherche :**
+   - Les résultats de la requête qui peuvent inclure des documents correspondants à la recherche, des valeurs agrégées, etc.
+
+5. **Opérations d'Indexation :**
+   - Les résultats peuvent inclure des informations sur la création ou la suppression d'index.
+
+6. **Opérations d'Aggrégation :**
+   - Les résultats peuvent inclure des documents agrégés en fonction des étapes d'agrégation spécifiées.
+
+7. **Opérations d'Authentification et d'Autorisation :**
+   - Succès ou échec de l'opération d'authentification.
+   - Autorisation accordée ou refusée.
+
+Ces champs peuvent varier légèrement en fonction de la version spécifique de MongoDB et des options utilisées lors de l'exécution des opérations. Vous pouvez consulter la [documentation officielle de MongoDB](https://www.mongodb.com/docs/manual/reference/method/js-collection/) pour obtenir des détails précis sur les réponses associées à chaque opération.

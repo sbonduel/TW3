@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/micmc422/tw3#readme",
   "dependencies": {
+    "lucide-react": "^0.439.0",
     "next": "^14.2.8",
     "nextra": "^2.13.4",
     "nextra-theme-docs": "^2.13.4",

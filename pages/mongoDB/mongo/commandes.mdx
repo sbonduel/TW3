@@ -1,0 +1,113 @@
+import { Callout } from 'nextra/components'
+
+# Commandes Essentielles pour une Première Prise en Main
+
+1. **Afficher l'Aide :**
+    ```javascript copy
+    help
+    ```
+
+2. **Lister les Bases de Données :**
+    ```javascript copy
+    show dbs;
+    ```
+
+3. **Sélectionner une Base de Données :**
+    ```javascript copy
+    use ma_base_de_donnees;
+    ```
+
+4. **Lister les Collections dans une Base de Données :**
+    ```javascript copy
+    show collections;
+    ```
+
+5. **Créer une Collection :**
+    ```javascript copy
+    db.createCollection("ma_collection");
+    ```
+
+6. **Insérer un Document :**
+    ```javascript copy
+    db.ma_collection.insertOne({ "nom": "John Doe", "age": 25, "ville": "Villebourg" });
+    ```
+
+7. **Lire des Documents :**
+    ```javascript copy
+    db.ma_collection.find();
+    ```
+
+8. **Lire un Document Spécifique :**
+    ```javascript copy
+    db.ma_collection.findOne({ "nom": "John Doe" });
+    ```
+
+9. **Mise à Jour d'un Document :**
+    ```javascript copy
+    db.ma_collection.updateOne({ "nom": "John Doe" }, { $set: { "age": 26 } });
+    ```
+
+10. **Suppression d'un Document :**
+    ```javascript copy
+    db.ma_collection.deleteOne({ "nom": "John Doe" });
+    ```
+
+11. **Supprimer une Collection :**
+    ```javascript copy
+    db.ma_collection.drop();
+    ```
+
+12. **Compter le Nombre de Documents dans une Collection :**
+    ```javascript copy
+    db.ma_collection.count();
+    ```
+
+13. **Afficher les Statistiques d'une Collection :**
+    ```javascript copy
+    db.ma_collection.stats();
+    ```
+
+14. **Indexer une Collection :**
+    ```javascript copy
+    db.ma_collection.createIndex({ "nom": 1 });
+    ```
+
+15. **Effectuer une Recherche Textuelle :**
+    ```javascript copy
+    db.ma_collection.find({ $text: { $search: "mot_cle" } });
+    ```
+
+16. **Limite et Triage des Résultats :**
+    ```javascript copy
+    db.ma_collection.find().limit(5).sort({ "nom": 1 });
+    ```
+
+17. **Aggrégation de Données :**
+    ```javascript copy
+    db.ma_collection.aggregate([{ $group: { _id: "$ville", total: { $sum: 1 } } }]);
+    ```
+
+18. **Sauvegarde et Restauration :**
+<Callout type="warning" emoji="⚠️">
+A exécuter dans le bash docker ou dans votre terminal mais pas dans le shell MongoDB.
+</Callout>
+    - **Sauvegarde :**
+        ```bash
+        mongodump --db ma_base_de_donnees --out /chemin/vers/sauvegarde
+        ```
+    - **Restauration :**
+        ```bash
+        mongorestore --db ma_base_de_donnees /chemin/vers/sauvegarde/ma_base_de_donnees
+        ```
+
+19. **Créer un Utilisateur :**
+    ```javascript
+    db.createUser({ user: "utilisateur", pwd: "mot_de_passe", roles: ["readWrite"] });
+    ```
+
+20. **Quitter le Shell MongoDB :**
+    ```javascript
+    exit
+    ```
+
+Ces commandes fournissent une base solide pour explorer et manipuler vos données MongoDB. N'hésitez pas à les expérimenter dans le shell et à explorer davantage en fonction de vos besoins spécifiques !

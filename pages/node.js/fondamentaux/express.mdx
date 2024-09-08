@@ -17,18 +17,18 @@ L'utilisation d'Express.js avec Node.js permet de simplifier et d'améliorer le 
 Pour utiliser Express, vous devez l'installer dans votre projet Node.js via NPM (Node Package Manager). Voici comment procéder :
 
 1. **Initialiser un projet Node.js** (si ce n'est pas déjà fait) :
-   ```bash
+   ```sh npm2yarn
    npm init -y
    ```
 
 2. **Installer Express** dans le projet :
-   ```bash
+   ```sh npm2yarn
    npm install express
    ```
 
 3. **Configurer un serveur Express de base** :
 
-   ```javascript
+   ```javascript copy
    const express = require('express');
    const app = express();
    
@@ -52,7 +52,7 @@ Les **routes** sont l'un des éléments centraux d'Express. Elles permettent de 
 
    Express permet de gérer différentes méthodes HTTP (`GET`, `POST`, `PUT`, `DELETE`, etc.). Voici un exemple simple avec des routes `GET` et `POST` :
 
-   ```javascript
+   ```javascript copy
    app.get('/about', (req, res) => {
      res.send('Page À propos');
    });
@@ -74,7 +74,7 @@ Un **middleware** est une fonction qui a accès à l'objet `req` (requête), `re
 
    Exemple de middleware simple qui journalise les requêtes :
 
-   ```javascript
+   ```javascript copy
    app.use((req, res, next) => {
      console.log(`Requête reçue : ${req.method} ${req.url}`);
      next();  // Passer au middleware suivant
@@ -87,7 +87,7 @@ Un **middleware** est une fonction qui a accès à l'objet `req` (requête), `re
 
    Express fournit un mécanisme intégré pour la gestion des erreurs. Un middleware de gestion des erreurs peut être ajouté de cette façon :
 
-   ```javascript
+   ```javascript copy
    app.use((err, req, res, next) => {
      console.error(err.stack);
      res.status(500).send('Quelque chose a mal tourné!');
@@ -110,7 +110,7 @@ Un **middleware** est une fonction qui a accès à l'objet `req` (requête), `re
 3. **Étape 3** : Ajouter un middleware de gestion des erreurs qui renvoie une erreur 404 pour toute route non trouvée.
 
 Exemple de solution :
-```javascript
+```javascript copy
 const express = require('express');
 const app = express();
 

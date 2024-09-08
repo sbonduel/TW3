@@ -1,0 +1,48 @@
+
+# Schémas Dynamiques vs Statiques dans MongoDB
+
+## Schémas Dynamiques
+
+**Exemple : Blog avec Schéma Dynamique**
+
+Considérons un blog dans lequel les utilisateurs peuvent ajouter des articles avec des champs dynamiques. Un utilisateur peut ajouter des informations supplémentaires à chaque article sans définir de schéma fixe à l'avance.
+
+```json
+{
+  "_id": ObjectId("id_article1"),
+  "titre": "Introduction à MongoDB",
+  "contenu": "...",
+  "auteur": "John Doe",
+  "date_publication": ISODate("2023-01-01T12:00:00Z"),
+  "tags": ["MongoDB", "NoSQL", "Base de Données"]
+}
+```
+
+Dans cet exemple, le document peut évoluer au fil du temps en fonction des besoins des utilisateurs. Certains articles peuvent avoir des champs supplémentaires, tandis que d'autres peuvent en avoir moins, offrant ainsi une grande flexibilité.
+
+## Schémas Statiques
+
+**Exemple : Catalogue de Produits avec Schéma Statique**
+
+Imaginons un catalogue de produits où la structure des produits est relativement stable. Chaque produit suit un schéma fixe qui inclut des informations telles que le nom, la description, le prix, et la catégorie.
+
+```json
+{
+  "_id": ObjectId("id_produit1"),
+  "nom": "Laptop",
+  "description": "Ordinateur portable performant",
+  "prix": 1200,
+  "catégorie": "Informatique",
+  "stock": 50
+}
+```
+
+Dans ce cas, la structure du document est prédéfinie, offrant un contrôle strict sur les informations associées à chaque produit. Cela peut être bénéfique pour garantir la cohérence des données dans un catalogue de produits.
+
+## Conclusion
+
+- Les schémas dynamiques sont adaptés lorsque la flexibilité est primordiale, par exemple dans des situations dans lesquelles la structure des données peut évoluer fréquemment.
+
+- Les schémas statiques sont préférables lorsque la structure des données est relativement stable et qu'un contrôle strict est nécessaire pour garantir la cohérence des données.
+
+Le choix entre schémas dynamiques et statiques dépend des exigences spécifiques de votre application et de la manière dont vous prévoyez d'interagir avec les données.

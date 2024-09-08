@@ -1,0 +1,57 @@
+# Installation avec NPM & Node.js
+
+
+**Installation et Configuration de MongoDB**
+
+Pour une installation normale de MongoDB, nous allons opter pour une approche qui utilise npm (Node Package Manager) et Node.js.
+
+### Étapes d'Installation avec npm et Node.js
+
+1. **Installation de Node.js :**
+   - Assurez-vous que Node.js est installé sur les postes universitaires. Vous pouvez télécharger Node.js depuis [le site officiel de Node.js](https://nodejs.org/).
+
+2. **Installation de MongoDB :**
+   - Ouvrez un terminal et utilisez la commande npm pour installer MongoDB :
+
+     ```sh npm2yarn copy
+     npm install -g mongodb
+     ```
+
+### Étapes d'Installation sans npm et Node.js
+
+1. **Téléchargement de MongoDB :**
+   - Accédez au site officiel de MongoDB à l'adresse [https://www.mongodb.com/try/download/community](https://www.mongodb.com/try/download/community).
+   - Choisissez la version de MongoDB adaptée au système d'exploitation des postes universitaires (Windows, macOS, ou Linux).
+
+2. **Installation de MongoDB :**
+   - Suivez les instructions d'installation spécifiques à votre système d'exploitation.
+
+### Configuration de MongoDB
+
+1. **Démarrage du Service MongoDB :**
+   - Une fois l'installation terminée, démarrez le service MongoDB en utilisant la commande appropriée pour votre système d'exploitation.
+
+2. **Vérification de l'Installation :**
+   - Ouvrez un terminal et exécutez la commande suivante pour vous assurer que MongoDB est correctement installé :
+
+     ```bash copy
+     mongod --version
+     ```
+
+### Connexion à MongoDB depuis le Shell
+
+1. **Démarrage du Shell MongoDB :**
+   - Ouvrez un nouveau terminal et exécutez la commande suivante pour accéder au shell MongoDB :
+
+     ```bash copy
+     mongo
+     ```
+
+2. **Connexion à une Base de Données :**
+   - Une fois dans le shell MongoDB, vous pouvez vous connecter à une base de données existante ou en créer une nouvelle.
+
+     ```bash copy
+     use ma_base_de_donnees
+     ```
+
+Vous avez maintenant MongoDB installé et configuré sur votre poste, prêt à être utilisé pour vos projets.

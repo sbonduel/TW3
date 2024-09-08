@@ -1,6 +1,10 @@
+import { Callout } from 'nextra/components'
+
 # Installation et configuration de Git
 
-Dans cette section, nous allons voir comment installer Git sur votre système et le configurer correctement.
+<Callout type='info' emoji="⚠️">
+*Les postes de l’université sont déjà configurés avec git.*
+</Callout>
 
 ## Installation de Git
 
@@ -19,6 +23,7 @@ Pour installer Git sur macOS :
 
 1. Ouvrez le Terminal
 2. Tapez la commande suivante et appuyez sur Entrée :
+
    ```bash copy
    brew install git
    ```
@@ -29,11 +34,13 @@ Pour installer Git sur Linux :
 
 1. Ouvrez un terminal
 2. Si vous utilisez Ubuntu ou Debian, tapez :
+
    ```bash copy
    sudo apt-get update
    sudo apt-get install git
    ```
 3. Si vous utilisez Fedora, tapez :
+
    ```bash copy
    sudo dnf install git
    ```
@@ -75,7 +82,7 @@ Bien que la ligne de commande soit puissante, certains développeurs préfèrent
 
 Pour vérifier que votre configuration est correcte, exécutez :
 
-```bash
+```bash copy
 git config --list
 ```
 

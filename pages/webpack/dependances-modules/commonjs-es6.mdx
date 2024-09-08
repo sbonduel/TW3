@@ -1,0 +1,74 @@
+# Utilisation de CommonJS et ES6 Modules dans Webpack
+
+Dans Webpack, vous avez la flexibilité d'utiliser différentes syntaxes de modules, notamment CommonJS et ES6 Modules (ECMAScript 6). Ces deux approches offrent des méthodes distinctes pour organiser et structurer le code de votre application. Dans ce module, nous explorerons l'utilisation de CommonJS et ES6 Modules dans le contexte de Webpack.
+
+**1. CommonJS :**
+
+CommonJS est une spécification de module utilisée notamment dans Node.js. Elle repose sur les mots-clés `require` pour l'importation et `module.exports` (ou `exports`) pour l'exportation. Webpack prend en charge CommonJS et vous permet d'utiliser cette syntaxe pour organiser vos modules.
+
+*Exemple de module CommonJS :*
+
+```javascript copy
+// myModule.js
+const add = (a, b) => a + b;
+
+module.exports = add;
+```
+
+```javascript copy
+// main.js
+const myModule = require('./myModule');
+
+const result = myModule(2, 3);
+console.log(result); // Affiche 5
+```
+
+## ES6 Modules
+
+Les modules ECMAScript 6 (ES6) introduisent une nouvelle syntaxe pour les modules, offrant des fonctionnalités plus avancées que CommonJS. Les mots-clés `import` et `export` sont utilisés pour gérer l'importation et l'exportation de modules.
+
+*Exemple de module ES6 :*
+
+```javascript copy
+// myModule.js
+const add = (a, b) => a + b;
+
+export default add;
+```
+
+```javascript copy
+// main.js
+import myModule from './myModule';
+
+const result = myModule(2, 3);
+console.log(result); // Affiche 5
+```
+
+## Configuration Webpack pour ES6 Modules
+
+Pour utiliser ES6 Modules avec Webpack, assurez-vous d'avoir une configuration adaptée. Webpack prend en charge ES6 Modules nativement, mais il est nécessaire de s'assurer que Babel (ou tout autre outil de transpilation ES6) est configuré pour traiter le code source.
+
+*Exemple de configuration Webpack avec Babel :*
+
+```javascript copy
+// webpack.config.js
+module.exports = {
+  // ...
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+L'utilisation de CommonJS ou ES6 Modules dépend souvent du contexte du projet et des préférences de l'équipe de développement. Webpack offre une prise en charge native des deux syntaxes, vous permettant de choisir celle qui convient le mieux à vos besoins. Prêt à intégrer ces concepts dans votre projet Webpack ? Passons à la mise en pratique.

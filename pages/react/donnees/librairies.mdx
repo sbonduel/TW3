@@ -1,0 +1,63 @@
+# Gestion de l'état global avec Redux ou MobX
+
+La gestion de l'état global est un aspect crucial du développement d'applications React. Il existe plusieurs bibliothèques et patterns pour gérer l'état global, mais deux des plus populaires sont Redux et MobX.
+
+## Redux
+
+Redux est une bibliothèque JavaScript pour la gestion de l'état global. Elle fournit un store centralisé pour votre application, où l'état de l'application est stocké. Les actions sont des objets qui décrivent ce qui doit changer dans l'état, et les reducers sont des fonctions qui déterminent comment l'état change en réponse à ces actions.
+
+Voici un exemple de base de la façon dont Redux peut être utilisé pour gérer l'état global :
+
+```jsx
+import { createStore } from 'redux';
+
+// Action
+const incrementAction = {
+ type: 'INCREMENT'
+};
+
+// Reducer
+function counterReducer(state = 0, action) {
+ switch (action.type) {
+   case 'INCREMENT':
+     return state + 1;
+   default:
+     return state;
+ }
+}
+
+// Store
+let store = createStore(counterReducer);
+
+store.subscribe(() => console.log(store.getState()));
+
+store.dispatch(incrementAction);
+```
+
+Dans cet exemple, nous avons une action `incrementAction` qui indique que nous voulons incrémenter le compteur. Nous avons également un reducer `counterReducer` qui détermine comment l'état change en réponse à cette action. Enfin, nous créons un store Redux avec ce reducer, et nous pouvons dispatcher des actions sur ce store pour changer l'état.
+
+## MobX
+
+MobX est une autre bibliothèque pour la gestion de l'état global. Contrairement à Redux, MobX utilise un modèle de programmation réactive, ce qui signifie que vous pouvez observer les changements d'état et réagir à eux automatiquement.
+
+Voici un exemple de base de la façon dont MobX peut être utilisé pour gérer l'état global :
+
+```jsx
+import { observable, action } from 'mobx';
+
+class CounterStore {
+ @observable count = 0;
+
+ @action increment() {
+   this.count += 1;
+ }
+}
+
+export default new CounterStore();
+```
+
+Dans cet exemple, nous avons une classe `CounterStore` avec une propriété observable `count` et une méthode action `increment`. La propriété `count` est marquée comme `@observable`, ce qui signifie que MobX la surveillera pour les changements. La méthode `increment` est marquée comme `@action`, ce qui signifie que MobX la traitera comme une action qui peut modifier l'état.
+
+Chaque fois que la méthode `increment` est appelée, la propriété `count` est automatiquement mise à jour, et tous les observateurs de `count` sont notifiés de ce changement.
+
+En conclusion, Redux et MobX sont deux bibliothèques puissantes pour la gestion de l'état global dans les applications React. Le choix entre les deux dépendra de vos besoins spécifiques et de votre préférence personnelle.

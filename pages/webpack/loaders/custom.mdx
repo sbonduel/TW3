@@ -1,0 +1,73 @@
+import {Steps} from "nextra/components"
+
+# Création de Loaders Personnalisés dans Webpack
+
+Dans ce module, nous explorerons le processus de création de loaders personnalisés pour Webpack. Les loaders personnalisés vous offrent la possibilité d'adapter le processus de construction à des besoins spécifiques de votre projet. Suivez ces étapes pour créer vos propres loaders dans Webpack :
+
+## Structure de Base
+  - Créez un nouveau répertoire pour votre loader personnalisé, par exemple `my-custom-loader`.
+
+  ```plaintext
+  my-custom-loader/
+  ├── package.json
+  ├── src/
+  │   └── index.js
+  ```
+
+## Initialisation du Projet NPM
+  - Exécutez `npm init -y` dans le répertoire du loader personnalisé pour initialiser un fichier `package.json`.
+
+## Installation de Dépendances
+  - Installez les dépendances nécessaires, y compris le package `loader-utils` pour aider à gérer les options du loader.
+
+  ```bash copy
+  npm install loader-utils --save
+  ```
+
+## Implémentation du Loader
+  - Dans le fichier `src/index.js`, implémentez la logique de votre loader personnalisé. Utilisez `loader-utils` pour accéder aux options du loader.
+
+  ```javascript copy
+   // src/index.js
+  const { getOptions } = require('loader-utils');
+
+  module.exports = function (source) {
+     // Accéder aux options du loader
+    const options = getOptions(this);
+
+     // Implémenter la logique du loader ici
+
+    return source;
+  };
+  ```
+
+## Configuration dans Webpack
+  - Dans le projet principal utilisant Webpack, ajoutez une entrée dans la configuration pour spécifier l'utilisation de votre loader personnalisé.
+
+  ```javascript copy
+   // webpack.config.js
+  module.exports = {
+     // ...
+    module: {
+      rules: [
+        {
+          test: /\.ext$/, // Remplacez .ext par l'extension que vous souhaitez traiter
+          use: [
+            {
+              loader: 'path/to/your/loader',
+              options: {
+                // Ajoutez des options spécifiques si nécessaire
+              },
+            },
+          ],
+        },
+         // Autres règles de loaders...
+      ],
+    },
+  };
+  ```
+
+## Compilation et Test
+Compilez votre projet Webpack pour voir votre loader personnalisé en action. Vous pouvez utiliser des fichiers de test pour vous assurer que le loader fonctionne comme prévu.
+
+En créant des loaders personnalisés, vous pouvez étendre les fonctionnalités de Webpack pour répondre aux besoins spécifiques de votre projet. Cette personnalisation offre une flexibilité considérable dans la manière dont votre application est construite.

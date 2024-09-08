@@ -1,0 +1,71 @@
+import { Steps } from 'nextra/components'
+
+# Installation avec NPM & Node.js
+
+L'installation de Webpack et sa configuration initiale impliquent plusieurs étapes. Voici un guide étape par étape pour vous aider à démarrer :
+<Steps>
+### Installation
+Installation de Node.js et npm
+Assurez-vous d'avoir Node.js installé sur votre système, car npm (Node Package Manager) est utilisé pour installer et gérer les packages nécessaires, y compris Webpack.
+
+- Téléchargez et installez Node.js à partir du site officiel : [Node.js](https://nodejs.org/)
+
+### Initialisation
+Initialisation d'un projet
+Créez un répertoire pour votre projet et ouvrez une console (terminal). Naviguez jusqu'au répertoire du projet et initialisez un fichier `package.json` en exécutant la commande suivante :
+
+```bash copy
+npm init -y
+```
+
+### Installation de Webpack
+Installez Webpack localement dans votre projet en utilisant la commande npm :
+
+```bash copy
+npm install webpack webpack-cli --save-dev
+```
+
+### Création des fichiers de configuration
+Créez un fichier de configuration pour Webpack. Créez un fichier `webpack.config.js` à la racine de votre projet. Voici un exemple de configuration de base :
+
+```javascript copy
+// webpack.config.js
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js', // Point d'entrée de l'application
+  output: {
+    filename: 'bundle.js', // Nom du fichier de sortie
+    path: path.resolve(__dirname, 'dist'), // Chemin de sortie du bundle
+  },
+};
+```
+
+### Configuration du script npm
+Ajoutez des scripts npm dans votre fichier `package.json` pour exécuter Webpack. Modifiez la section `scripts` comme suit :
+
+```json copy
+"scripts": {
+  "build": "webpack"
+}
+```
+
+### Création d'un fichier d'entrée
+Créez un fichier d'entrée pour votre application. Par exemple, créez un fichier `src/index.js` avec un simple code JavaScript.
+
+### Exécution de Webpack
+Exécutez la commande npm pour construire votre application avec Webpack :
+
+```bash copy
+npm run build
+```
+Cela devrait créer un répertoire `dist` avec un fichier `bundle.js`.
+
+Pendant le développement vous pouvez aussi utiliser : 
+```bash copy
+npx webpack serve
+```
+Cette commande lance un serveur node dont le résultat est accessible via le port 8080 de localhost
+
+</Steps>
+Vous avez maintenant installé Webpack, configuré un fichier de configuration de base et construit votre première application. Vous pouvez ensuite élargir cette configuration en ajoutant des loaders, des plugins, etc., en fonction des besoins spécifiques de votre projet.

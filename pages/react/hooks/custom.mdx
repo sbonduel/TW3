@@ -1,0 +1,41 @@
+# Hooks Personnalisés en React
+
+Les hooks personnalisés sont une fonctionnalité puissante de React qui permet aux développeurs de réutiliser l'état et d'autres fonctionnalités de React sans avoir à écrire des composants. Ils sont essentiellement des fonctions qui commencent par le mot-clé `use` et peuvent être utilisés pour encapsuler la logique de l'état ou du cycle de vie dans des fonctions réutilisables.
+
+## useMediaQuery
+
+Un exemple courant de hook personnalisé est `useMediaQuery`, qui est utilisé pour détecter si une certaine requête média est satisfaite. Par exemple, vous pouvez utiliser `useMediaQuery` pour vérifier si l'appareil de l'utilisateur est un appareil mobile ou un ordinateur de bureau.
+
+Voici comment vous pouvez créer un hook personnalisé `useMediaQuery`:
+
+```javascript
+import { useState, useEffect } from 'react';
+
+const useMediaQuery = (query) => {
+ const [matches, setMatches] = useState(false);
+
+ useEffect(() => {
+   const media = window.matchMedia(query);
+   if (media.matches !== matches) {
+     setMatches(media.matches);
+   }
+   const listener = () => {
+     setMatches(media.matches);
+   };
+   media.addListener(listener);
+   return () => media.removeListener(listener);
+ }, [matches, query]);
+
+ return matches;
+};
+```
+
+Dans cet exemple, nous utilisons l'API `window.matchMedia` pour écouter les changements de requête média. Lorsque la requête média change, nous mettons à jour l'état `matches` avec la nouvelle valeur. Nous retournons ensuite cette valeur, ce qui signifie que nous pouvons utiliser notre hook personnalisé comme ceci:
+
+```javascript
+const isMobile = useMediaQuery('(max-width: 600px)');
+```
+
+Dans cet exemple, `isMobile` sera `true` si la largeur de la fenêtre est inférieure ou égale à 600px, et `false` sinon.
+
+En résumé, les hooks personnalisés sont une façon puissante de réutiliser la logique de l'état et du cycle de vie dans React. En utilisant des hooks personnalisés comme `useMediaQuery`, vous pouvez rendre votre code plus propre et plus facile à comprendre.

@@ -22,5 +22,18 @@
   "NPM": {
     "title": "NPM",
     "type": "page"
+  },
+  "mongoDB": {
+    "title": "MongoDB",
+    "type": "page"
+  },
+  "react": {
+    "title": "REACT",
+    "type": "page"
+  },
+  "webpack": {
+    "display": "hidden",
+    "title": "Webpack",
+    "type": "page"
   }
 }

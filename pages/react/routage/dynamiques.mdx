@@ -1,0 +1,32 @@
+# Création de Routes Dynamiques avec React Router
+
+La création de routes dynamiques dans React Router permet de rendre des composants basés sur des paramètres d'URL variables. Par exemple, vous pouvez avoir une route pour afficher les détails d'un produit dans une boutique en ligne, où l'ID du produit est un paramètre d'URL.
+
+Voici comment vous pouvez créer une route dynamique avec React Router :
+
+```jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+function App() {
+ return (
+ <Router>
+   <Routes>
+     <Route path="/product/:id" element={<Product />} />
+   </Routes>
+ </Router>
+ );
+}
+```
+
+Dans cet exemple, `:id` est un paramètre de route dynamique. Vous pouvez accéder à la valeur de ce paramètre dans le composant `Product` en utilisant le hook `useParams` de React Router :
+
+```jsx
+import { useParams } from "react-router-dom";
+
+function Product() {
+ let { id } = useParams();
+ // Maintenant, vous pouvez utiliser l'ID du produit pour charger les données du produit
+}
+```
+
+Dans cet exemple, si l'URL est `/product/123`, alors `id` sera `'123'` dans le composant `Product`.

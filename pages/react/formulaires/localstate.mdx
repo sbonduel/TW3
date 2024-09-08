@@ -1,0 +1,46 @@
+# Gestion de l'état local dans les formulaires
+
+## Introduction à la gestion de l'état local dans les formulaires
+
+La gestion de l'état local dans les formulaires est une technique courante dans le développement React. L'état local est une caractéristique interne d'un composant React qui stocke des informations qui peuvent changer au fil du temps. Lorsque l'état local d'un composant change, le composant se re-rend et met à jour l'interface utilisateur.
+
+## Utilisation du hook `useState` pour gérer l'état local
+
+Pour gérer l'état local dans les formulaires, nous utilisons généralement le hook `useState` de React. Ce hook crée une variable d'état et une fonction pour la mettre à jour.
+
+Voici un exemple de base de la façon dont `useState` peut être utilisé pour gérer l'état local dans un formulaire :
+
+```jsx
+import React, { useState } from 'react';
+
+function Form() {
+ const [inputValue, setInputValue] = useState('');
+
+ const handleChange = event => {
+  setInputValue(event.target.value);
+ };
+
+ const handleSubmit = event => {
+  event.preventDefault();
+  alert(`Submitted: ${inputValue}`);
+ };
+
+ return (
+  <form onSubmit={handleSubmit}>
+    <label>
+      Name:
+      <input type="text" value={inputValue} onChange={handleChange} />
+    </label>
+    <input type="submit" value="Submit" />
+  </form>
+ );
+}
+```
+
+Dans cet exemple, nous avons un composant `Form` avec un état local `inputValue`. Nous utilisons la fonction `setInputValue` pour mettre à jour cet état lorsque l'utilisateur tape dans le champ de saisie. Lorsque le formulaire est soumis, nous affichons une alerte avec la valeur actuelle de `inputValue`.
+
+## Importance de l'état local dans les formulaires
+
+Il est important de noter que l'état local est spécifique à chaque instance d'un composant. Cela signifie que si vous avez plusieurs instances d'un même composant, chacune aura son propre état local.
+
+En conclusion, la gestion de l'état local dans les formulaires est une technique puissante pour contrôler l'état des champs de formulaire et réagir aux modifications de l'utilisateur.

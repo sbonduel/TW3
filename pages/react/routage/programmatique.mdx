@@ -1,0 +1,27 @@
+# Navigation Programmatique avec React Router
+
+La navigation programmatique dans React Router permet de naviguer vers différentes routes de votre application en utilisant du code JavaScript plutôt que des liens hypertextes. Cela peut être utile dans divers scénarios, par exemple lorsque vous voulez rediriger l'utilisateur après qu'une action a été effectuée, comme la soumission d'un formulaire.
+
+Voici comment vous pouvez réaliser une navigation programmatique avec React Router :
+
+```jsx
+import { useNavigate } from "react-router-dom";
+
+function FormComponent() {
+ let navigate = useNavigate();
+
+ const handleSubmit = (event) => {
+  event.preventDefault();
+  // Effectuez une action, puis naviguez vers une autre route
+  navigate('/success');
+ };
+
+ return (
+  <form onSubmit={handleSubmit}>
+    {/* ... */}
+  </form>
+ );
+}
+```
+
+Dans cet exemple, après la soumission du formulaire, l'utilisateur est redirigé vers la route `/success`. Notez que `useNavigate` est un hook fourni par React Router qui retourne une fonction que vous pouvez utiliser pour naviguer vers différentes routes.

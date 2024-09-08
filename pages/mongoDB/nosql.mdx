@@ -1,0 +1,102 @@
+import { Callout } from 'nextra/components'
+
+# Introduction à NoSQL avec MongoDB
+
+Salut à tous,
+
+Aujourd'hui, nous allons plonger dans le monde captivant de NoSQL et découvrir comment cette approche révolutionne la gestion des données. Plus spécifiquement, nous explorerons le rôle de MongoDB en tant qu'exemple notable dans le domaine de NoSQL.
+
+## Qu'est-ce que NoSQL ?
+
+NoSQL, qui signifie "Not Only SQL", est une approche de gestion de données qui diffère des bases de données relationnelles traditionnelles. Contrairement aux bases de données SQL classiques, NoSQL adopte une structure plus souple et évolutive pour stocker et récupérer des données.
+
+## Pourquoi NoSQL ?
+
+**Flexibilité du Schéma :** Les bases de données NoSQL, y compris MongoDB, permettent de stocker des données sans avoir besoin de définir un schéma rigide à l'avance. Cela facilite l'adaptation aux changements dans la structure des données.
+
+**Évolutivité Horizontale :** NoSQL excelle dans la gestion de grands volumes de données et offre une extensibilité horizontale, permettant d'ajouter de nouveaux serveurs pour répondre à la croissance des données.
+
+**Gestion de Données Non-Structurées :** Les bases de données NoSQL sont idéales pour les données non-structurées ou semi-structurées, comme celles trouvées dans les applications web modernes.
+
+## Exemple avec MongoDB
+
+### Modèle de Données
+
+MongoDB utilise un modèle de données basé sur des documents BSON (Binary JSON). Chaque enregistrement est un document flexible, similaire à un objet JSON, qui peut contenir des champs variés.
+
+Un document MongoDB ressemble à un objet JSON, offrant une flexibilité considérable dans la structure des données. Voici un exemple concret :
+
+```json
+{
+  "_id": 1,
+  "nom": "John Doe",
+  "age": 30,
+  "adresse": {
+    "rue": "123 Rue Principale",
+    "ville": "Villebourg",
+    "code_postal": "12345"
+  },
+  "commandes": [
+    {"produit": "Laptop", "quantite": 2},
+    {"produit": "Souris", "quantite": 1}
+  ]
+}
+```
+
+Ici, nous avons un document représentant un utilisateur avec des informations personnelles, une adresse et une liste de commandes.
+
+### Opérations CRUD
+
+Les opérations CRUD (Create, Read, Update, Delete) sont fondamentales dans MongoDB.
+
+- **Create (Insertion) :**
+
+```js copy
+  db.etudiants.insertOne({ "_id": 2, "nom": "Étudiant2", "matières": ["Chimie", "Biologie"] });
+```
+
+- **Read (Lecture) :**
+
+```js copy
+  db.etudiants.find({ "matières": "Informatique" });
+```
+ Vous n'obtenez aucun résultat et c'est normal aucun étudiant n'est inscrit en informatique. 
+ Changez par `{"matières" : "Chimie"}`
+
+- **Update (Mise à Jour) :**
+
+```js copy
+  db.etudiants.updateOne({ "nom": "Étudiant1" }, { $addToSet: { "matières": "Chimie" } });
+```
+``` json
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+```
+Chacun des champs dans cette réponse fournit des informations spécifiques sur le résultat de l'opération. Voici une explication détaillée de chaque champ :
+
+1. **`acknowledged: true` :** Ce champ indique que le serveur MongoDB a bien reçu et traité la demande. Si la valeur est `true`, cela signifie que l'opération a été effectuée avec succès.
+
+2. **`insertedId: null` :** Ce champ indique l'identifiant du document inséré lors d'une opération d'insertion. Dans ce cas, la valeur est `null`, ce qui suggère qu'aucun document n'a été inséré lors de l'opération.
+
+3. **`matchedCount: 0` :** Ce champ représente le nombre de documents correspondant aux critères de recherche spécifiés dans la requête de mise à jour. Dans ce cas, la valeur est `0`, indiquant qu'aucun document existant n'a été trouvé qui correspond aux critères de mise à jour.
+
+4. **`modifiedCount: 0` :** Ce champ indique le nombre de documents effectivement modifiés lors de l'opération de mise à jour. La valeur `0` signifie qu'aucun document n'a été modifié, car aucun document correspondant n'a été trouvé.
+
+5. **`upsertedCount: 0` :** Ce champ concerne les opérations d'upsert, qui consistent à mettre à jour un document s'il existe ou à l'insérer s'il n'existe pas. La valeur `0` suggère qu'aucune opération d'upsert n'a été effectuée lors de cette opération.
+
+En résumé, la réponse indique que l'opération de mise à jour a été exécutée avec succès, mais qu'aucun document existant n'a été trouvé et donc aucun document n'a été modifié. Les champs tels que `insertedId` et `upsertedCount` indiquent également qu'aucun document n'a été inséré ou upserté pendant cette opération spécifique.
+
+- **Delete (Suppression) :**
+
+```js copy
+  db.etudiants.deleteOne({ "nom": "Étudiant2" });
+```
+
+## Conclusion
+
+NoSQL, offre une alternative puissante aux bases de données relationnelles traditionnelles. Sa flexibilité, son évolutivité et sa capacité à gérer des données non-structurées en font un choix populaire pour diverses applications.

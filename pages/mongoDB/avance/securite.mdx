@@ -1,0 +1,49 @@
+
+# Sécurité dans MongoDB : Protéger les Données Sensibles
+
+La sécurité des données est une priorité absolue dans MongoDB. Ce chapitre examine les pratiques et les fonctionnalités de sécurité intégrées à MongoDB pour garantir l'intégrité et la confidentialité des informations stockées. En comprenant ces aspects, vous pourrez mettre en place des mesures robustes pour protéger vos données sensibles.
+
+## Authentification et Autorisation
+
+L'authentification garantit que seuls les utilisateurs autorisés peuvent accéder à la base de données. Explorerons la configuration des utilisateurs et des rôles, ainsi que l'utilisation d'une connexion chiffrée pour renforcer la sécurité.
+
+```javascript
+// Création d'un utilisateur avec des privilèges spécifiques
+db.createUser({
+  user: "utilisateur_nom",
+  pwd: "mot_de_passe",
+  roles: ["readWrite", "dbAdmin"]
+});
+```
+
+## Chiffrement des Données
+
+Le chiffrement des données ajoute une couche de sécurité supplémentaire. Le chiffrement au repos et le chiffrement en transit, protégeant respectivement les données stockées sur le disque et celles transitant entre le client et le serveur.
+
+```javascript
+// Activation du chiffrement au repos pour une base de données
+db.getSiblingDB("admin").runCommand({ enableEncryption: 1, kms: { key: "myKey" } });
+```
+
+## Pare-feu MongoDB
+
+La configuration d'un pare-feu MongoDB permet de restreindre l'accès à la base de données en spécifiant les adresses IP autorisées. Configuration des règles du pare-feu pour renforcer la sécurité du réseau.
+
+```javascript
+// Configuration du pare-feu MongoDB pour autoriser une adresse IP spécifique
+db.runCommand({ addIPWhitelist: "192.168.1.1" });
+```
+
+## Audit des Opérations
+
+L'audit des opérations offre une traçabilité des activités dans la base de données. 
+Configuration de l'audit pour enregistrer des événements spécifiques, permettant une surveillance détaillée.
+
+```javascript
+// Activation de l'audit pour surveiller les opérations de lecture et d'écriture
+db.adminCommand({setParameter: 1, auditAuthorizationSuccess: true});
+```
+
+## Bonnes Pratiques de Sécurité
+
+En plus des fonctionnalités spécifiques, nous discuterons des bonnes pratiques générales de sécurité, telles que la mise à jour régulière, la gestion des vulnérabilités et la sensibilisation des équipes à la sécurité des bases de données.

@@ -10,7 +10,7 @@ Les **callbacks** sont une méthode classique pour gérer cette asynchronicité.
 
 Exemple d'utilisation avec le module `fs` pour lire un fichier de manière asynchrone :
 
-```javascript
+```javascript copy
 const fs = require('fs');
 
 // Lire un fichier de manière asynchrone avec un callback
@@ -33,7 +33,7 @@ Une **Promesse** représente la valeur d'une opération asynchrone qui sera remp
 
 Exemple de Promesse avec la méthode `readFile` :
 
-```javascript
+```javascript copy
 const fs = require('fs').promises;
 
 fs.readFile('example.txt', 'utf8')
@@ -49,7 +49,7 @@ La syntaxe **`async/await`** simplifie encore plus l'utilisation des Promesses e
 
 Voici l'exemple précédent réécrit avec `async/await` :
 
-```javascript
+```javascript copy
 const fs = require('fs').promises;
 
 async function lireFichier() {

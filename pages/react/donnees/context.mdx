@@ -1,0 +1,60 @@
+# Utilisation du Context API pour Partager des Données Globales
+
+Le Context API est une fonctionnalité de React qui permet de partager des données globales entre plusieurs composants sans avoir à les passer explicitement à travers les props. C'est particulièrement utile pour les données qui sont nécessaires dans de nombreux composants à différents niveaux de l'arbre de composants.
+
+## Création du Contexte
+
+La première étape consiste à créer un contexte. Un contexte est simplement un objet vide qui sert de conteneur pour les données que vous souhaitez partager. Vous pouvez créer un contexte en utilisant la fonction `createContext()` de React.
+
+```jsx
+import React, { createContext } from 'react';
+
+// Création du contexte
+const MyContext = createContext();
+```
+
+## Fourniture du Contexte
+
+Une fois que vous avez créé un contexte, vous pouvez le fournir à vos composants en utilisant le `Provider` du contexte. Le `Provider` est un composant spécial qui accepte une prop `value` et la rend disponible à tous les composants enfants.
+
+```jsx
+import React, { createContext, useContext } from 'react';
+
+// Création du contexte
+const MyContext = createContext();
+
+// Composant parent
+function ParentComponent() {
+ return (
+  // Provider qui fournit le contexte à tous les composants enfants
+  <MyContext.Provider value="Hello from parent!">
+    <ChildComponent />
+  </MyContext.Provider>
+ );
+}
+```
+
+Dans cet exemple, le composant `ParentComponent` fournit le contexte `MyContext` à son composant enfant `ChildComponent`. La valeur du contexte est définie sur "Hello from parent!".
+
+## Consommation du Contexte
+
+Pour consommer le contexte dans un composant enfant, vous pouvez utiliser le hook `useContext()`. Ce hook accepte un objet de contexte (c'est-à-dire l'objet retourné par `createContext()`) et renvoie la valeur actuelle du contexte.
+
+```jsx
+import React, { createContext, useContext } from 'react';
+
+// Création du contexte
+const MyContext = createContext();
+
+// Composant enfant
+function ChildComponent() {
+ // Consommation du contexte
+ const message = useContext(MyContext);
+
+ return <p>{message}</p>;
+}
+```
+
+Dans cet exemple, le composant `ChildComponent` consomme le contexte `MyContext` et affiche la valeur du contexte dans un élément `<p>`.
+
+Notez que le `Provider` peut être placé à n'importe quel niveau de l'arbre de composants, et toute valeur fournie sera disponible pour tous les composants enfants, peu importe leur profondeur dans l'arbre.
