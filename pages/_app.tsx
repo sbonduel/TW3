@@ -2,7 +2,6 @@ import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
-import { useConfig } from 'nextra-theme-docs'
 
 
 function colorsByPath(path: string) {
@@ -29,15 +28,17 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             <style>
                 {`
         :root {
-          --nextra-primary-hue: ${hue}deg!important;
-          --nextra-primary-saturation: ${saturation}%!important;
+        --nextra-primary-hue: ${hue}deg!important;
+        --nextra-primary-saturation: ${saturation}%!important;
+        --nextra-bg-color: rgba(243,244,246,var(--tw-text-opacity));
         }
 
         .dark {
-          --nextra-primary-hue: ${hue}deg!important;
-          --nextra-primary-saturation: ${saturation}%!important;
+        --nextra-primary-hue: ${hue}deg!important;
+        --nextra-primary-saturation: ${saturation}%!important;
+        --nextra-bg-color: rgba(17,17,17,var(--tw-text-opacity));
         }
-      `}
+    `}
             </style>
         </Head>
         <Component {...pageProps} />
