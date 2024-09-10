@@ -1,6 +1,6 @@
 {
   "name": "champollion-tw3",
-  "version": "0.0.1",
+  "version": "0.0.666",
   "description": "Cours TW3 Licence 3",
   "scripts": {
     "dev": "next dev",
@@ -11,11 +11,11 @@
     "type": "git",
     "url": "git+https://github.com/micmc422/tw3.git"
   },
-  "author": "Bardy Michaël <michael.bardy@occitaweb.fr>",
+  "author": "Bardy Michaël <michael.bardy@occitaweb.fr>, Bonduelle Simon <bonduelle.simon@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/micmc422/tw3/issues"
-  },
+  }, 
   "homepage": "https://github.com/micmc422/tw3#readme",
   "dependencies": {
     "lucide-react": "^0.439.0",
