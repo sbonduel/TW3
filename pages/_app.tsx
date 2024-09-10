@@ -14,7 +14,7 @@ function colorsByPath(path: string) {
     return [212, 100] //valeurs par défaut dans theme.config.tsx
 }
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component,pageProps }: AppProps) {
     const { asPath } = useRouter()
     const [hue, setHue] = useState(212);
     const [saturation, setSaturation] = useState(100);
@@ -40,6 +40,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         }
     `}
             </style>
+            <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         </Head>
         <Component {...pageProps} />
     </>

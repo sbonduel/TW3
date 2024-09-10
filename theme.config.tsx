@@ -1,5 +1,6 @@
 import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
+import { useRouter } from 'next/router';
 
 const Champollion = () => {
   return (
@@ -88,6 +89,23 @@ const config: DocsThemeConfig = {
     content: "Une question ou un problème ?",
   },
   docsRepositoryBase: 'https://github.com/micmc422/TW3',
+  head: () => {
+    const { asPath, defaultLocale, locale } = useRouter()
+    const { frontMatter } = useConfig()
+    const url =
+      'https://tw-3.vercel.app' +
+      (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
+
+    return (
+      <>
+        <meta property="og:url" content={url} />
+        <meta
+          property="og:description"
+          content={frontMatter.description || 'Cours sur les technologie du web. Université Champollion Albi'}
+        />
+      </>
+    )
+  },
   footer: {
     text: <>Champollion - TW3 -&nbsp;<a href="https://occitaweb.fr" target="_blank">Bardy Michaël</a></>,
   },

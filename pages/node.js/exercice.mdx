@@ -1,0 +1,74 @@
+
+import { Callout, Steps } from "nextra/components"
+
+# Consigne de l'exercice :
+<Callout>
+**Objectif** : Dans cet exercice, vous allez mettre en pratique les notions apprises sur **Node.js**, **NPM** et **Git**. Vous allez créer une application Node.js simple utilisant **Express** pour créer un serveur web, ainsi que le module **fs** pour lire et afficher le contenu d'un fichier sur une route définie. Enfin, vous versionnerez votre travail avec **Git**.
+</Callout>
+
+## Étapes de l'exercice :
+<Steps>
+### **Initialisation du projet :**
+   - Créez un nouveau répertoire pour votre projet.
+   - Initialisez un dépôt Git (`git init`) dans ce répertoire.
+   - Utilisez `npm init` pour créer un fichier `package.json`.
+
+### **Installation des dépendances :**
+   - Installez **Express** en tant que dépendance (`npm install express`).
+   - Créez un fichier `.gitignore` et ajoutez-y `node_modules` pour éviter de versionner les modules installés.
+
+### **Création du serveur avec Express :**
+   - Créez un fichier `index.js`.
+   - Dans ce fichier, configurez un serveur HTTP avec Express qui écoute sur le port 3000.
+```js copy
+// Importation des modules nécessaires : Express et fs (à compléter)
+const express = require('express');
+const fs = _______; // Complétez ici en important le module fs
+
+// Créez une application Express (à compléter)
+const app = _______; // Complétez en initialisant l'application Express
+
+// Définissez un port pour votre serveur
+const PORT = 3000;
+
+// Route principale qui renvoie un message de bienvenue
+app.get('/', (req, res) => {
+    res.send('Bienvenue sur votre serveur Node.js avec Express et fs !');
+});
+
+// Route qui lit le contenu du fichier data.txt et l'affiche (à compléter)
+app.get('/readfile', (req, res) => {
+    // Utilisez fs pour lire le fichier data.txt (à compléter)
+    fs.readFile('data.txt', 'utf8', (err, data) => {
+        if (err) {
+            // Gérez l'erreur ici (à compléter)
+            res.status(500).send('Erreur lors de la lecture du fichier');
+        } else {
+            // Envoyez le contenu du fichier en réponse (à compléter)
+            _______; // Complétez ici pour envoyer le contenu du fichier via res
+        }
+    });
+});
+
+// Démarrez le serveur pour qu'il écoute sur le port défini (à compléter)
+app.listen(_____, () => { // Complétez avec le port sur lequel votre serveur va écouter
+    console.log(`Serveur démarré sur le port ${PORT}`);
+});
+
+```
+### **Utilisation du module fs :**
+   - Utilisez le module **fs** (File System) pour lire le contenu d'un fichier texte (`data.txt` que vous créerez avec un contenu quelconque) dans votre répertoire.
+   - Ajoutez une route GET `/readfile` qui renvoie le contenu du fichier lu au format texte.
+
+### **Utilisation de Git :**
+   - Faites plusieurs commits en respectant les étapes suivantes :
+     1. **Premier commit** : Initialisation du projet avec Git et `npm init`.
+     2. **Deuxième commit** : Ajout du fichier `index.js` avec la configuration de base du serveur Express.
+     3. **Troisième commit** : Ajout de la fonctionnalité pour lire et afficher le contenu du fichier avec **fs**.
+     4. **Quatrième commit** : Test et validation finale de votre projet.
+
+### **Test du projet :**
+   - Démarrez votre serveur (`node index.js`) et accédez à la route `/readfile` via votre navigateur ou Postman pour voir le contenu du fichier `data.txt`.
+</Steps>
+
+**Bonus** : Ajoutez une fonctionnalité qui permet à l'utilisateur de télécharger le fichier `data.txt` en cliquant sur un lien.
