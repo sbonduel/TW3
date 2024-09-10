@@ -27,7 +27,7 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/micmc422/TW3',
   footer: {
-    text: 'Champollion - TW3 - Bardy Michaël',
+    text: <>Champollion - TW3 -&nbsp;<a href="https://occitaweb.fr" target="_blank">Bardy Michaël</a></>,
   },
   gitTimestamp: ({ timestamp }) => <>Dernière mise à jour {timestamp.toLocaleDateString()}</>
 }
