@@ -23,8 +23,6 @@ export default function QuizzRoot({ children, quizData }: { children: ReactNode,
     const score = useMemo(() => {
         let calculScore = 0;
         questions.forEach((question, i) => {
-            // console.log("correct", question.correctAnswer)
-            console.log("userAns", userAnswers, i)
             if (userAnswers[i] !== 0 && question.correctAnswer === userAnswers[i]) {
                 calculScore += question.point
             }

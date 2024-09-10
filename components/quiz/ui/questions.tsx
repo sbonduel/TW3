@@ -1,19 +1,20 @@
 import { useContext, useEffect, useRef, useState } from "react"
 import { QuizzContext } from "../context"
-import { QuizNextBtn, QuizTitle } from ".."
+import { QuizNextBtn, QuizResetBtn, QuizTitle } from ".."
+import { Trash2Icon } from "lucide-react"
 
 export default function Questions() {
     const ref = useRef(null)
-    const { currentQuestion, questions, handleAnswser, userAnswers } = useContext(QuizzContext)
+    const { currentQuestion, questions, handleAnswser, userAnswers, score, totalScore } = useContext(QuizzContext)
     const { question, answers } = questions[currentQuestion - 1] || {}
     useEffect(() => {
-          updateSelectedClass()
+        updateSelectedClass()
     }, [userAnswers[currentQuestion - 1], currentQuestion])
     // Fonction pour mettre à jour la classe CSS
-    async function updateSelectedClass() {
+    function updateSelectedClass() {
         ref?.current?.querySelectorAll('li').forEach((item, index) => {
 
-            if (userAnswers[currentQuestion - 1] === 0) return
+           // if (userAnswers[currentQuestion - 1] === 0) return
             if (index + 1 === userAnswers[currentQuestion - 1]) {
                 if (questions[currentQuestion - 1]?.correctAnswer === index + 1) {
                     console.log("isCorrect")
@@ -36,7 +37,7 @@ export default function Questions() {
     if (currentQuestion === 0) return <></>
     return (
         <>
-            <QuizTitle>{question}</QuizTitle>
+            <QuizTitle>{currentQuestion}/{questions.length} - {question}</QuizTitle>
             <ul ref={ref} key={currentQuestion}>
                 {answers.map((answer, i) => (
                     <li
@@ -48,7 +49,13 @@ export default function Questions() {
                     </li>
                 ))}
             </ul>
-            <QuizNextBtn>Continuer</QuizNextBtn>
+            <div className="nx-flex" style={{ gap: "1rem" }}>
+                <QuizNextBtn>Continuer</QuizNextBtn>
+                <QuizResetBtn><Trash2Icon /></QuizResetBtn>
+                <div className="nx-flex nx-justify-end nx-mt-2 nx-text-2xl nx-font-bold nx-tracking-tight nx-text-slate-900 dark:nx-text-slate-100" style={{alignSelf: "center"}}>
+                    {score} / {totalScore}
+                </div>
+            </div>
         </>
     )
 }

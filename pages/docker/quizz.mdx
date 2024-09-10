@@ -1,0 +1,95 @@
+import Quizz from "@/components/quiz"
+import { QuizStructure } from "@/components/quiz/type";
+export const quiz = {
+    quizTitle: "Quizz Docker",
+    quizSynopsis: <>Ce quiz est conçu pour tester vos connaissances sur Docker, une plateforme populaire pour le conteneurisation des applications. À travers ces questions, vous allez évaluer votre compréhension des concepts fondamentaux liés à Docker, notamment ses principes, les commandes essentielles et les bonnes pratiques d'utilisation.
+        <br />
+        Prenez quelques instants pour répondre aux questions et ainsi vérifier votre maîtrise des bases de Docker. Bonne chance !
+    </>,
+    questions: [
+        {
+            question: "Qu'est-ce que Docker ?",
+            questionType: "text",
+            answerSelectionType: "single",
+            answers: [
+                "Un système de gestion de base de données",
+                "Un environnement de développement intégré",
+                "Une plateforme de conteneurisation d'applications",
+                "Un langage de programmation"
+            ],
+            correctAnswer: 3,
+            messageForCorrectAnswer: "Correct ! Docker est bien une plateforme de conteneurisation.",
+            messageForIncorrectAnswer: "Incorrect. Docker n'est pas ce que vous avez choisi.",
+            explanation: "Docker est une plateforme qui permet de créer et de gérer des conteneurs, des unités légères et portables pour les applications logicielles.",
+            point: 20
+        },
+        {
+            question: "Quelle commande permet de lancer un nouveau conteneur à partir d'une image ?",
+            questionType: "text",
+            answerSelectionType: "single",
+            answers: [
+                "docker run",
+                "docker start",
+                "docker create",
+                "docker launch"
+            ],
+            correctAnswer: 1,
+            messageForCorrectAnswer: "Exact ! La commande docker run lance un nouveau conteneur.",
+            messageForIncorrectAnswer: "Non, ce n'est pas la bonne commande.",
+            explanation: "La commande docker run permet de créer et de démarrer un nouveau conteneur à partir d'une image spécifiée.",
+            point: 20
+        },
+        {
+            question: "Que signifie le terme 'image' dans le contexte de Docker ?",
+            questionType: "text",
+            answerSelectionType: "single",
+            answers: [
+                "Un fichier de configuration du conteneur",
+                "Une instance en cours d'exécution d'un conteneur",
+                "Une template immuable utilisé pour créer des conteneurs",
+                "Un volume persistant pour stocker des données"
+            ],
+            correctAnswer: 3,
+            messageForCorrectAnswer: "Très bien ! Vous avez compris le concept d'image Docker.",
+            messageForIncorrectAnswer: "Ce n'est pas tout à fait correct.",
+            explanation: "Dans Docker, une image est un modèle immuable utilisé pour créer des conteneurs. Elle contient le code de l'application, ses dépendances et les configurations nécessaires.",
+            point: 20
+        },
+        {
+            question: "Comment supprimer tous les conteneurs arrêtés ?",
+            questionType: "text",
+            answerSelectionType: "single",
+            answers: [
+                "docker rm $(docker ps -aq)",
+                "docker rmi $(docker images -q)",
+                "docker system prune",
+                "docker container prune"
+            ],
+            correctAnswer: 4,
+            messageForCorrectAnswer: "Excellent ! Vous connaissez la commande pour nettoyer les conteneurs inutilisés.",
+            messageForIncorrectAnswer: "Pas tout à fait. Il existe une commande plus appropriée pour cela.",
+            explanation: "La commande docker container prune supprime tous les conteneurs arrêtés. C'est une façon efficace de libérer de l'espace disque en éliminant les conteneurs non utilisés.",
+            point: 20
+        },
+        {
+            question: "Quel est l'avantage principal de l'utilisation de volumes Docker ?",
+            questionType: "text",
+            answerSelectionType: "single",
+            answers: [
+                "Améliorer les performances du conteneur",
+                "Permettre la persistance des données entre les redémarrages du conteneur",
+                "Réduire la taille des images Docker",
+                "Simplifier la gestion des réseaux entre les conteneurs"
+            ],
+            correctAnswer: 2,
+            messageForCorrectAnswer: "Bien joué ! Vous avez identifié l'un des avantages clés des volumes Docker.",
+            messageForIncorrectAnswer: "Ce n'est pas l'avantage principal des volumes Docker.",
+            explanation: "Les volumes Docker permettent de persister les données même lorsque le conteneur est arrêté ou supprimé. Cela facilite la sauvegarde et la récupération des données importantes.",
+            point: 20
+        }
+    ]
+};
+
+<Quizz quizData={quiz} />
+
+
